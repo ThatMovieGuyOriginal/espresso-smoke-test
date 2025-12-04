@@ -1,0 +1,28 @@
+/* Import fonts first */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Roboto:wght@400;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .container-custom {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .text-heading {
+    @apply font-heading font-extrabold tracking-tight-heading;
+  }
+  
+  .text-body {
+    @apply font-sans font-normal leading-relaxed;
+  }
+}
+
+body {
+  @apply bg-dark-bg text-text-primary;
+}
+
+input, textarea {
+  @apply bg-dark-surface border border-dark-border text-text-primary rounded-md px-4 py-2;
+}
