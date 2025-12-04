@@ -1204,6 +1204,9 @@ CREATE POLICY "Allow authenticated read" ON waitlist
 NEXT_PUBLIC_SUPABASE_URL=https://xxxyyyzzz.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGc...
 SUPABASE_SERVICE_ROLE_KEY=eyJhbGc...
+
+### Consent (GDPR/CAN-SPAM)
+We store an explicit `consent` boolean on the `waitlist` table. The client form requires users to opt-in before joining the waitlist. If you re-run the SQL migration, ensure the `consent` column exists (the provided SQL now adds it).
 ```
 
 ---

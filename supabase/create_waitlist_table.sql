@@ -5,6 +5,7 @@ CREATE TABLE IF NOT EXISTS waitlist (
   email TEXT UNIQUE NOT NULL,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT now(),
   status TEXT DEFAULT 'active' CHECK (status IN ('active', 'contacted', 'converted')),
+  consent BOOLEAN DEFAULT true,
   source TEXT DEFAULT 'landing_page'
 );
 
@@ -24,3 +25,6 @@ CREATE POLICY "Allow public insert" ON waitlist
 CREATE POLICY "Allow authenticated read" ON waitlist
   FOR SELECT
   USING (auth.role() = 'authenticated');
+
+-- If you run this file again and want idempotency for the new column:
+ALTER TABLE waitlist ADD COLUMN IF NOT EXISTS consent BOOLEAN DEFAULT true;

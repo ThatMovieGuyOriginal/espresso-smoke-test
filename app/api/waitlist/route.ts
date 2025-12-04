@@ -3,7 +3,7 @@ import { createClient } from "@supabase/supabase-js"
 
 export async function POST(request: Request) {
   try {
-    const { email } = await request.json()
+    const { email, consent } = await request.json()
 
     // Validation
     if (!email || !validateEmail(email)) {
@@ -21,17 +21,18 @@ export async function POST(request: Request) {
 
     const supabase = createClient(supabaseUrl, supabaseServiceKey)
 
-    // Insert into Supabase
-    const { data, error } = await supabase
-      .from("waitlist")
-      .insert([
-        {
-          email: email.toLowerCase(),
-          created_at: new Date().toISOString(),
-          status: "active",
-        },
-      ])
-      .select()
+    // Insert into Supabase (include consent boolean)
+    const payload: any = {
+      email: email.toLowerCase(),
+      created_at: new Date().toISOString(),
+      status: "active",
+    }
+
+    if (typeof consent === 'boolean') {
+      payload.consent = consent
+    }
+
+    const { data, error } = await supabase.from("waitlist").insert([payload]).select()
 
     if (error) {
       // Handle duplicate email (Postgres unique violation)

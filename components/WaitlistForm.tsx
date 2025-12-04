@@ -7,6 +7,7 @@ import { useState } from "react"
 
 export function WaitlistForm() {
   const [email, setEmail] = useState("")
+  const [consent, setConsent] = useState<boolean>(false)
   const [loading, setLoading] = useState(false)
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle")
   const [message, setMessage] = useState("")
@@ -20,6 +21,12 @@ export function WaitlistForm() {
       return
     }
 
+    if (!consent) {
+      setStatus("error")
+      setMessage("Please confirm you agree to receive emails (required).")
+      return
+    }
+
     setLoading(true)
     track("waitlist_submitted", { email, location: "waitlist_page" })
 
@@ -27,7 +34,7 @@ export function WaitlistForm() {
       const response = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, consent }),
       })
 
       const data = await response.json()
@@ -60,6 +67,22 @@ export function WaitlistForm() {
           disabled={loading}
           required
         />
+        <label className="flex items-center gap-3 text-sm text-text-secondary">
+          <input
+            type="checkbox"
+            checked={consent}
+            onChange={(e) => setConsent(e.target.checked)}
+            disabled={loading}
+            className="w-4 h-4"
+          />
+          <span>
+            I agree to receive emails about the product and updates. See our{' '}
+            <a href="/privacy" className="underline">
+              privacy policy
+            </a>
+            .
+          </span>
+        </label>
         <Button
           variant="secondary"
           size="lg"

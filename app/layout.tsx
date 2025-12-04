@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer'
 import { Analytics } from "@vercel/analytics/react"
 import type { Metadata } from "next"
 import { Inter, Roboto } from "next/font/google"
@@ -62,6 +63,7 @@ export default function RootLayout({
       </head>
       <body className="bg-dark-bg text-text-primary font-sans">
         <main>{children}</main>
+        <Footer />
         <Analytics />
       </body>
     </html>
