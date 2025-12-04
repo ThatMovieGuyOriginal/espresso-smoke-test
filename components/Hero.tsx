@@ -34,7 +34,7 @@ export default function Hero() {
               variant="primary"
               size="lg"
             >
-              GENERATE MY SCHEDULE - $29
+              GENERATE MY SCHEDULE - $49
             </Button>
             <p className="text-xs text-text-secondary flex items-center gap-2">
               🔒 100% Money-Back Guarantee
@@ -44,15 +44,14 @@ export default function Hero() {
 
         {/* Visual: Linea Mini */}
         <div className="flex justify-center">
-          <div className="w-full h-96 md:h-full bg-dark-surface rounded-lg flex items-center justify-center border border-dark-border">
-            <Image
-              src="/linea-mini-hero.png"
-              alt="Linea mini espresso machine on a countertop."
-              width={500}
-              height={500}
-              className="rounded-lg shadow-xl border border-dark-border object-contain max-h-full" 
-            />
-          </div>
+          <Image
+            src="/linea-mini-hero.png"
+            alt="La Marzocco Linea Mini espresso machine"
+            width={500}
+            height={500}
+            priority
+            className="rounded-lg shadow-2xl"
+          />
         </div>
       </div>
     </section>
