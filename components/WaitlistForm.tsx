@@ -8,8 +8,8 @@ import { useState } from "react"
 export function WaitlistForm() {
   const [email, setEmail] = useState("")
   const [consent, setConsent] = useState<boolean>(false)
-    const [loading, setLoading] = useState(false)
-    const [status, setStatus] = useState<'idle' | 'pending' | 'success' | 'error'>('idle')
+  const [loading, setLoading] = useState(false)
+  const [status, setStatus] = useState<'idle' | 'pending' | 'success' | 'error'>('idle')
   const [message, setMessage] = useState("")
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -40,10 +40,9 @@ export function WaitlistForm() {
       const data = await response.json()
 
       if (response.ok) {
-          // Double opt-in: show pending message and prompt user to check email
-          setStatus('pending')
-          setMessage(data.message || 'Check your email to confirm your subscription.')
-          // For testing, developer can use data.confirmationUrl
+        // Sets status to pending, which we now handle in the JSX below
+        setStatus('pending')
+        setMessage(data.message || 'Check your email to confirm your subscription.')
       } else {
         setStatus("error")
         setMessage(data.error || "Something went wrong. Try again.")
@@ -87,13 +86,15 @@ export function WaitlistForm() {
         <Button
           variant="secondary"
           size="lg"
-          disabled={loading || status === "success"}
+          // Disable button on both success and pending
+          disabled={loading || status === "success" || status === "pending"}
         >
           {loading ? "JOINING..." : "JOIN THE WAITLIST"}
         </Button>
       </div>
 
-      {status === "success" && (
+      {/* UPDATED: Check for both success OR pending */}
+      {(status === "success" || status === "pending") && (
         <p className="text-accent-green text-center mt-4 font-semibold">
           {message}
         </p>

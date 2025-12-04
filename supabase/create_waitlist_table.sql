@@ -39,3 +39,9 @@ ALTER TABLE waitlist ADD COLUMN IF NOT EXISTS unsubscribed_at TIMESTAMP WITH TIM
 ALTER TABLE waitlist ADD COLUMN IF NOT EXISTS signup_ip INET;
 ALTER TABLE waitlist ADD COLUMN IF NOT EXISTS signup_ip_at TIMESTAMP WITH TIME ZONE;
 ALTER TABLE waitlist ADD COLUMN IF NOT EXISTS confirmation_ip INET;
+
+ALTER TABLE waitlist
+DROP CONSTRAINT waitlist_status_check,
+ADD CONSTRAINT waitlist_status_check
+CHECK (status IN ('active', 'contacted', 'converted', 'pending'));
+

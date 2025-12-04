@@ -1235,17 +1235,17 @@ When SMTP is configured, the `/api/waitlist` POST handler will send the confirma
 ## 7. DEPLOYMENT WORKFLOW - ATOMIC STEPS
 
 ### 7.1 Pre-Deployment Checklist (One-Time Setup)
-- [ ] **GitHub Repository Created:** Push initial Next.js project to `main` branch
+- [X] **GitHub Repository Created:** Push initial Next.js project to `main` branch
   - Command: `git init` → `git add .` → `git commit -m "Initial commit"` → `git push -u origin main`
-- [ ] **Vercel Account Created:** Sign up at https://vercel.com
-- [ ] **GitHub Connected to Vercel:** Vercel Dashboard → Settings → Connect Git
-- [ ] **Project Imported:** Vercel Dashboard → New Project → Select `espresso-smoke-test` → Import
-- [ ] **Build Settings Verified:**
+- [X] **Vercel Account Created:** Sign up at https://vercel.com
+- [X] **GitHub Connected to Vercel:** Vercel Dashboard → Settings → Connect Git
+- [X] **Project Imported:** Vercel Dashboard → New Project → Select `espresso-smoke-test` → Import
+- [X] **Build Settings Verified:**
   - Framework: Next.js (auto-detected)
   - Build Command: `npm run build` (auto-filled)
   - Output: `.next` (auto-filled)
   - Install Command: `npm install` (auto-filled)
-- [ ] **Environment Variables Set (Vercel):**
+- [X] **Environment Variables Set (Vercel):**
   - `NEXT_PUBLIC_SUPABASE_URL` (Public)
   - `NEXT_PUBLIC_SUPABASE_ANON_KEY` (Public)
   - `SUPABASE_SERVICE_ROLE_KEY` (Production tag only)
@@ -1366,7 +1366,7 @@ When SMTP is configured, the `/api/waitlist` POST handler will send the confirma
 **Headlines (Required: 3, Display up to 3):**
 1. Linea Mini Maintenance Guide? → "Precision Schedule for Your Water"
 2. Custom Schedule for Your Water → "Prevent Scale & Boiler Damage"
-3. Protect Your $5,900 Investment → "JSON Maintenance Protocol"
+3. Protect Your $6,600 Investment → "JSON Maintenance Protocol"
 
 **Descriptions (Required: 2, Display up to 2):**
 1. Don't guess. Get a precision maintenance calendar based on your water hardness. Prevent costly repairs.
