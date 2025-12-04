@@ -9,7 +9,8 @@ export function WaitlistForm() {
   const [email, setEmail] = useState("")
   const [consent, setConsent] = useState<boolean>(false)
   const [loading, setLoading] = useState(false)
-  const [status, setStatus] = useState<'idle' | 'pending' | 'success' | 'error'>('idle')
+  // Simplified status type since we are hiding 'pending' for now
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [message, setMessage] = useState("")
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -39,18 +40,11 @@ export function WaitlistForm() {
 
       const data = await response.json()
 
-        if (response.ok) {
-        // Scenario A: User is already confirmed or no double-opt-in required
-        if (data.status === 'active' || data.already_subscribed) {
-            setStatus('success')
-            setMessage(data.message || "You are officially on the list!")
-        } 
-        // Scenario B: User needs to confirm email (Pending)
-        else {
-            setStatus('pending')
-            setMessage(data.message || "You are officially on the list!")
-        }
-        } else {
+      if (response.ok) {
+        // FORCE SUCCESS: Ignore 'pending' status from server and data.message
+        setStatus('success')
+        setMessage("You are officially on the list!") 
+      } else {
         setStatus("error")
         setMessage(data.error || "Something went wrong. Try again.")
       }
@@ -93,15 +87,13 @@ export function WaitlistForm() {
         <Button
           variant="secondary"
           size="lg"
-          // Disable button on both success and pending
-          disabled={loading || status === "success" || status === "pending"}
+          disabled={loading || status === "success"}
         >
           {loading ? "JOINING..." : "JOIN THE WAITLIST"}
         </Button>
       </div>
 
-      {/* UPDATED: Check for both success OR pending */}
-      {(status === "success" || status === "pending") && (
+      {status === "success" && (
         <p className="text-accent-green text-center mt-4 font-semibold">
           {message}
         </p>
