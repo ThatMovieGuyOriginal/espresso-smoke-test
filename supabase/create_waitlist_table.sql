@@ -16,11 +16,11 @@ CREATE INDEX IF NOT EXISTS waitlist_status_idx ON waitlist(status);
 ALTER TABLE waitlist ENABLE ROW LEVEL SECURITY;
 
 -- Allow public inserts if you choose (for MVP only). Adjust for production.
-CREATE POLICY IF NOT EXISTS "Allow public insert" ON waitlist
+CREATE POLICY "Allow public insert" ON waitlist
   FOR INSERT
   WITH CHECK (true);
 
 -- Restrict selects to authenticated users (adjust as needed)
-CREATE POLICY IF NOT EXISTS "Allow authenticated read" ON waitlist
+CREATE POLICY "Allow authenticated read" ON waitlist
   FOR SELECT
   USING (auth.role() = 'authenticated');

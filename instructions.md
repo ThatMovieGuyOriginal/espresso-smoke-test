@@ -5,6 +5,12 @@
 **Deployment:** GitHub → Vercel (Free Tier) with Custom Domain.
 
 ---
+## Progress Summary (Updated)
+- Phase 1 (Local Setup): Completed ✅
+- Phase 2 (GitHub & Vercel): Completed ✅ (repository pushed, Vercel linked, initial deploy created)
+- Phase 3 (Supabase Provisioning): Pending — requires Supabase project creation and environment variables to be added in Vercel
+- Next action: Provision Supabase, run `supabase/create_waitlist_table.sql`, then add environment variables to Vercel (see Section 6.3)
+
 
 ## 1. TECH STACK & DEPLOYMENT
 
