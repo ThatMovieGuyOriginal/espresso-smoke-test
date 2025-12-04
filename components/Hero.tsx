@@ -1,7 +1,8 @@
 "use client"
 
-import { Button } from "@/components/Button"
-import { track } from "@vercel/analytics"
+import { Button } from "@/components/Button";
+import { track } from "@vercel/analytics";
+import Image from "next/image";
 
 export default function Hero() {
   const handleCTAClick = () => {
@@ -41,12 +42,16 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right: Image */}
+        {/* Visual: Linea Mini */}
         <div className="flex justify-center">
           <div className="w-full h-96 md:h-full bg-dark-surface rounded-lg flex items-center justify-center border border-dark-border">
-            <p className="text-text-secondary text-center">
-              [Hero Image: La Marzocco Linea Mini placeholder]
-            </p>
+            <Image
+              src="/linea-mini-hero.png"
+              alt="Linea mini espresso machine on a countertop."
+              width={500}
+              height={500}
+              className="rounded-lg shadow-xl border border-dark-border object-contain max-h-full" 
+            />
           </div>
         </div>
       </div>
