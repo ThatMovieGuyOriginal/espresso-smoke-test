@@ -39,11 +39,18 @@ export function WaitlistForm() {
 
       const data = await response.json()
 
-      if (response.ok) {
-        // Sets status to pending, which we now handle in the JSX below
-        setStatus('pending')
-        setMessage(data.message || 'Check your email to confirm your subscription.')
-      } else {
+        if (response.ok) {
+        // Scenario A: User is already confirmed or no double-opt-in required
+        if (data.status === 'active' || data.already_subscribed) {
+            setStatus('success')
+            setMessage(data.message || "You are officially on the list!")
+        } 
+        // Scenario B: User needs to confirm email (Pending)
+        else {
+            setStatus('pending')
+            setMessage(data.message || "You are officially on the list!")
+        }
+        } else {
         setStatus("error")
         setMessage(data.error || "Something went wrong. Try again.")
       }
