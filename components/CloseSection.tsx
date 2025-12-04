@@ -17,7 +17,7 @@ export default function CloseSection() {
         Protect Your Investment for Less Than 1lb of Beans.
       </h2>
       <p className="text-lg text-text-secondary mb-12 max-w-2xl mx-auto">
-        Your machine cost <strong>$5,900</strong>. Don't let a $5 gasket ruin it.
+        Your machine cost <strong>$6,600</strong>. Don't let a $5 gasket ruin it.
       </p>
       <Button
         onClick={handleCTAClick}
