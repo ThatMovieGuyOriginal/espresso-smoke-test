@@ -1207,6 +1207,16 @@ SUPABASE_SERVICE_ROLE_KEY=eyJhbGc...
 
 ### Consent (GDPR/CAN-SPAM)
 We store an explicit `consent` boolean on the `waitlist` table. The client form requires users to opt-in before joining the waitlist. If you re-run the SQL migration, ensure the `consent` column exists (the provided SQL now adds it).
+
+### Double Opt-In & Unsubscribe
+This project now implements a double opt-in flow:
+
+- **Submit:** Client `POST /api/waitlist` creates a `pending` row and generates a `confirmation_token`.
+- **Confirm:** The confirmation URL is `/api/waitlist/confirm?token=<token>` — in production the app should email that link to the user. For initial testing the API returns the `confirmationUrl` so you can click it manually.
+- **Confirmed row:** When the token is visited the server sets `status = 'active'` and `confirmed_at`.
+- **Unsubscribe:** `POST /api/waitlist/unsubscribe` with `{ email }` sets `status = 'unsubscribed'` and `unsubscribed_at`.
+
+Make sure `SUPABASE_SERVICE_ROLE_KEY` is present in Vercel envs (Production) for the confirm and unsubscribe endpoints to run server-side.
 ```
 
 ---

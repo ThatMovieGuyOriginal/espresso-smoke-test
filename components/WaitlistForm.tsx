@@ -8,8 +8,8 @@ import { useState } from "react"
 export function WaitlistForm() {
   const [email, setEmail] = useState("")
   const [consent, setConsent] = useState<boolean>(false)
-  const [loading, setLoading] = useState(false)
-  const [status, setStatus] = useState<"idle" | "success" | "error">("idle")
+    const [loading, setLoading] = useState(false)
+    const [status, setStatus] = useState<'idle' | 'pending' | 'success' | 'error'>('idle')
   const [message, setMessage] = useState("")
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -40,9 +40,10 @@ export function WaitlistForm() {
       const data = await response.json()
 
       if (response.ok) {
-        setStatus("success")
-        setMessage("You are on the list. We will contact you shortly.")
-        setEmail("")
+          // Double opt-in: show pending message and prompt user to check email
+          setStatus('pending')
+          setMessage(data.message || 'Check your email to confirm your subscription.')
+          // For testing, developer can use data.confirmationUrl
       } else {
         setStatus("error")
         setMessage(data.error || "Something went wrong. Try again.")

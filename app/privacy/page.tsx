@@ -20,6 +20,16 @@ export default function PrivacyPage() {
           replying to any email with the word "unsubscribe".
         </p>
 
+        <h2 className="text-xl font-bold text-text-primary mt-6 mb-2">Double Opt-In & Unsubscribe</h2>
+        <p className="text-text-secondary mb-4">
+          We use a double opt-in process: after you submit your email we will send a confirmation link
+          that you must click to confirm your subscription. This prevents accidental signups.
+        </p>
+        <p className="text-text-secondary mb-4">
+          To unsubscribe, click the unsubscribe link in any email or visit our unsubscribe endpoint and provide
+          your email address. We will mark your contact as unsubscribed and stop sending notifications.
+        </p>
+
         <h2 className="text-xl font-bold text-text-primary mt-6 mb-2">Contact</h2>
         <p className="text-text-secondary">
           For privacy requests, email: <a href="mailto:contact@espressoschedules.com" className="underline">contact@espressoschedules.com</a>
