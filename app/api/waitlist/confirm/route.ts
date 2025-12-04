@@ -37,10 +37,14 @@ export async function GET(request: Request) {
 
     const row = rows[0]
 
-    // Update to active and set confirmed_at
+    // capture confirmation IP
+    const forwardedFor = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || ''
+    const confirmationIp = forwardedFor.split(',')[0].trim() || null
+
+    // Update to active and set confirmed_at and confirmation_ip
     const { error: updateError } = await supabase
       .from('waitlist')
-      .update({ status: 'active', confirmed_at: new Date().toISOString() })
+      .update({ status: 'active', confirmed_at: new Date().toISOString(), confirmation_ip: confirmationIp })
       .eq('id', row.id)
 
     if (updateError) {

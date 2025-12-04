@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/Button"
-import { track } from "@vercel/analytics/react"
+import { track } from "@vercel/analytics"
 
 export default function CloseSection() {
   const handleCTAClick = () => {

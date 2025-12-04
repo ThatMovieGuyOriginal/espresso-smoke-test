@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/Button"
 import { validateEmail } from "@/lib/email-validation"
-import { track } from "@vercel/analytics/react"
+import { track } from "@vercel/analytics"
 import { useState } from "react"
 
 export function WaitlistForm() {

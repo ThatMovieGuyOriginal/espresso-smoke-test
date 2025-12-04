@@ -87,7 +87,7 @@
   * Free Tier Limit: 1M tracked events/month
   * Data Retention: 90 days on free tier
 * **Custom Event Tracking (Button Clicks):**
-  * Use `track()` function from `@vercel/analytics/react`
+  * Use `track()` function from `@vercel/analytics` (import Analytics component from `@vercel/analytics/next` in App Router)
   * Track in client component with `'use client'` directive
   * Event names: snake_case (e.g., `schedule_generation_clicked`)
   * Include metadata: `{ location: 'hero_section', timestamp: new Date().toISOString() }`
@@ -1217,6 +1217,17 @@ This project now implements a double opt-in flow:
 - **Unsubscribe:** `POST /api/waitlist/unsubscribe` with `{ email }` sets `status = 'unsubscribed'` and `unsubscribed_at`.
 
 Make sure `SUPABASE_SERVICE_ROLE_KEY` is present in Vercel envs (Production) for the confirm and unsubscribe endpoints to run server-side.
+
+### SMTP / Confirmation Email Setup
+If you'd like confirmation links to be emailed automatically (recommended), provide SMTP credentials in Vercel as Production secrets:
+
+- `SMTP_HOST` (e.g. `smtp.supabase.co`)
+- `SMTP_PORT` (usually `587` or `465`)
+- `SMTP_USER` (SMTP username)
+- `SMTP_PASSWORD` (SMTP password)
+- `EMAIL_FROM` (display name and email, e.g. `Espresso Schedules <noreply@espressoschedules.com>`)
+
+When SMTP is configured, the `/api/waitlist` POST handler will send the confirmation email automatically; otherwise it returns the `confirmationUrl` in the JSON response for manual testing.
 ```
 
 ---
