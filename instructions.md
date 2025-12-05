@@ -5,12 +5,199 @@
 **Deployment:** GitHub → Vercel (Free Tier) with Custom Domain.
 
 ---
-## Progress Summary (Updated)
-- Phase 1 (Local Setup): Completed ✅
-- Phase 2 (GitHub & Vercel): Completed ✅ (repository pushed, Vercel linked, initial deploy created)
-- Phase 3 (Supabase Provisioning): Pending — requires Supabase project creation and environment variables to be added in Vercel
-- Next action: Provision Supabase, run `supabase/create_waitlist_table.sql`, then add environment variables to Vercel (see Section 6.3)
+## Progress Summary (FINAL - LAUNCH READY)
 
+### ✅ COMPLETED & VERIFIED
+- **Phase 1:** Local Setup - Completed ✅
+- **Phase 2:** GitHub & Vercel - Completed ✅ (pushed to ThatMovieGuyOriginal/espresso-smoke-test, auto-deploying)
+- **Phase 3:** Supabase Provisioning - Completed ✅ (`waitlist` table + `orders` table created with full schema)
+- **Phase 4:** Payment Integration - Completed ✅ (Stripe production link live: https://buy.stripe.com/3cI00iblT6B0fdFbJE7AI00)
+- **Phase 5:** Order Flow - Completed ✅ (form → Stripe → success page → Supabase save)
+- **Phase 6:** Capacity Management - Completed ✅ (auto-fallback to waitlist at 15 orders)
+- **Phase 7:** Legal Coverage - Completed ✅ (ToS, Privacy, Contact pages live)
+- **Phase 8:** Database Schema - Completed ✅ (orders table with operational tracking: fulfilled_at, ics_file_url, notes, refund_reason)
+
+### 🎯 LIVE FEATURES (PRODUCTION)
+1. **Landing Page** - Hero, Agitation (with broken heater coil image), Features, Authority, Close sections
+2. **Order Form** (`/order`) - Collects email, water hardness (PPM), daily shots, serial number
+3. **Payment** - Stripe checkout with prefilled email
+4. **Success Page** (`/success`) - Order confirmation + next steps message
+5. **Waitlist** (`/waitlist`) - Double opt-in queue when capacity hit
+6. **Legal Pages** - Privacy (`/privacy`), Terms (`/tos`), Contact (`/contact`)
+7. **Footer Navigation** - Privacy | Terms | Contact links
+8. **Analytics** - Vercel Analytics + custom event tracking (track() calls)
+9. **Database** - Supabase with `orders` table (15-order capacity limit) + `waitlist` table
+
+### 📊 PRODUCTION URL
+**https://espressoschedules.com** (Custom domain with SSL/HTTPS)
+
+### 🔍 ORDER LIMIT
+Currently set to: **15 orders** (edit `app/api/order-status/route.ts` line 4 to adjust)
+
+---
+## NEXT STEPS & AUTOMATION ROADMAP
+
+### 🔄 Phase 9: Manual Fulfillment (Week 1)
+**Goal:** Deliver first 15 schedules manually to validate product-market fit.
+
+**Workflow:**
+1. Customer pays → Order appears in Supabase `orders` table with status `'paid'`
+2. You receive notification (check Supabase dashboard directly)
+3. Retrieve customer profile:
+   ```sql
+   SELECT email, water_hardness_ppm, daily_shots, serial_number
+   FROM orders WHERE status = 'paid' ORDER BY created_at ASC LIMIT 1;
+   ```
+4. Generate custom .ics file:
+   - Use water_hardness_ppm to calculate descaling intervals
+   - Use daily_shots to determine gasket/seal replacement windows
+   - Output format: `schedule-{serial_number}-{timestamp}.ics`
+5. Store file locally or upload to cloud storage (S3, Dropbox, etc.)
+6. Update Supabase order record:
+   ```sql
+   UPDATE orders 
+   SET ics_file_url = 'https://your-storage/schedule-LM-12345-1701720000.ics',
+       fulfilled_at = NOW(),
+       status = 'fulfilled'
+   WHERE email = 'customer@email.com';
+   ```
+7. Send customer email with download link and instructions
+8. Track fulfillment time: `fulfilled_at - created_at` (should aim for 24-48 hours)
+
+**Key Metric to Track:**
+- Average fulfillment time per order
+- Any refund requests (track reason in `refund_reason` field)
+- Customer feedback in `notes` field
+
+---
+
+### 🤖 Phase 10: Semi-Automated Fulfillment (Week 2-3, if validation succeeds)
+**Goal:** Reduce manual data entry with an admin dashboard.
+
+**Build:**
+1. Create `/admin` page (password-protected) showing:
+   ```tsx
+   // Pseudo-code
+   SELECT email, water_hardness_ppm, daily_shots, serial_number, created_at
+   FROM orders
+   WHERE status = 'paid' AND fulfilled_at IS NULL
+   ORDER BY created_at ASC;
+   ```
+2. Add "Mark Fulfilled" button that:
+   - Generates .ics automatically (Python backend or Lambda function)
+   - Uploads to S3 bucket ($1/month)
+   - Gets signed URL (expires in 7 days)
+   - Updates Supabase: `ics_file_url` + `fulfilled_at` + `status='fulfilled'`
+   - Sends email via SendGrid or Stripe
+3. Dashboard metrics:
+   - Pending orders count
+   - Avg fulfillment time
+   - Total revenue (week/month)
+
+**Time Investment:** ~4-6 hours to build
+
+---
+
+### ⚙️ Phase 11: Fully Automated Fulfillment (Week 4+, recommended)
+**Goal:** Zero-touch fulfillment pipeline. Order → Auto-schedule → Auto-email within hours.
+
+**Architecture:**
+1. **Supabase Webhook** (real-time trigger):
+   - Event: Order status changes to `'paid'`
+   - Calls your backend endpoint: `POST /api/fulfillment`
+
+2. **Fulfillment Lambda/Cron Job** (`/api/fulfillment`):
+   ```typescript
+   // Pseudo-code
+   1. Receive order data (email, water_hardness_ppm, daily_shots, serial_number)
+   2. Generate .ics:
+      - Base: maintenance-schedule.ics template
+      - Inject customer data (water hardness → descale interval, daily_shots → gasket replacement)
+      - Output: schedule-{serial_number}-{timestamp}.ics
+   3. Upload to S3:
+      - Bucket: espressoschedules-schedules
+      - Path: /customer-{email}-timestamp.ics
+      - Get signed URL (valid 30 days)
+   4. Update Supabase:
+      UPDATE orders SET 
+        ics_file_url = 'https://s3.amazonaws.com/...',
+        fulfilled_at = NOW(),
+        status = 'fulfilled'
+      WHERE email = 'customer@email.com'
+   5. Send email via Stripe/SendGrid with download link + setup instructions
+   6. Log in `notes` field: "Auto-fulfilled via schedule generation v1.0"
+   ```
+
+3. **Technology Stack:**
+   - Schedule generation: Python script (iCalendar library) or Node.js (ical.js)
+   - Storage: AWS S3 ($1/month) or Supabase Storage
+   - Email: Stripe Webhooks (auto-emails on status change) or SendGrid API
+   - Triggering: Supabase Webhooks or Make.com/Zapier (visual workflow)
+
+4. **Estimated Setup Time:** 6-8 hours (including testing)
+
+**Cost:**
+- S3: ~$1/month
+- Stripe/SendGrid: included in existing services
+- Total: $1/month
+
+---
+
+### 🎯 Phase 12: AI-Enhanced Personalization (Future, optional)
+**Goal:** Add personalized insights to each schedule.
+
+**Features:**
+1. Call Claude API (or GPT) with customer data:
+   ```
+   Input: water_hardness_ppm=150, daily_shots=8, serial_number=LM-12345
+   Prompt: "Generate maintenance insights for this espresso machine profile"
+   Output: "Your machine is in moderate-hardness water. At 8 daily shots, gaskets wear quickly. Consider..."
+   ```
+2. Store in `notes` field for customer email
+3. Include personalized tips in .ics file comments
+
+**Cost:** ~$0.01-0.10 per order (Claude API pricing)
+
+---
+
+### 📈 Operational Queries (Use These Weekly)
+
+**Pending Fulfillment:**
+```sql
+SELECT COUNT(*) as pending_orders, 
+       MIN(created_at) as oldest_order
+FROM orders
+WHERE status = 'paid' AND fulfilled_at IS NULL;
+```
+
+**Fulfillment Speed:**
+```sql
+SELECT AVG(EXTRACT(HOUR FROM (fulfilled_at - created_at))) as avg_hours_to_fulfill
+FROM orders
+WHERE status = 'fulfilled' AND fulfilled_at IS NOT NULL;
+```
+
+**Revenue:**
+```sql
+SELECT 
+  DATE(created_at) as order_date,
+  COUNT(*) as orders,
+  SUM(amount_paid) / 100.0 as revenue
+FROM orders
+WHERE status IN ('paid', 'fulfilled')
+GROUP BY DATE(created_at)
+ORDER BY order_date DESC;
+```
+
+**Refund Analysis:**
+```sql
+SELECT refund_reason, COUNT(*) as count
+FROM orders
+WHERE status = 'refunded'
+GROUP BY refund_reason;
+```
+
+---
 
 ## 1. TECH STACK & DEPLOYMENT
 
