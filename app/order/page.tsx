@@ -85,9 +85,8 @@ export default function OrderPage() {
       serial_number: formData.serialNumber,
     }))
 
-    // Redirect to Stripe TEST LINK with prefilled email
-    // TODO: Switch to production link: https://buy.stripe.com/3cI00iblT6B0fdFbJE7AI00
-    const stripeUrl = new URL('https://buy.stripe.com/test_3cI00iblT6B0fdFbJE7AI00')
+    // Redirect to Stripe with prefilled email
+    const stripeUrl = new URL('https://buy.stripe.com/3cI00iblT6B0fdFbJE7AI00')
     stripeUrl.searchParams.set('prefilled_email', formData.email)
     stripeUrl.searchParams.set('client_reference_id', formData.email) // Pass email as reference
     
