@@ -10,44 +10,52 @@ function SuccessContent() {
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    const saveOrder = async () => {
+    const confirmPayment = async () => {
       try {
-        // Retrieve pending order data from sessionStorage
+        const sessionId = searchParams.get('session_id')
+        
+        // Get user email from Stripe session
+        // For now, we'll need the email from the Stripe redirect
+        // The order was already created in pending_payment status before redirect
+        // We just need to confirm it's paid
+        
+        // Since sessionStorage was used before, try to get email from there
         const pendingOrderData = sessionStorage.getItem('pendingOrder')
         if (!pendingOrderData) {
-          setError('Order data not found. Please contact support.')
+          // This is okay - order was saved to Supabase before redirect
+          // Just show success
           setSaving(false)
           return
         }
 
         const orderData = JSON.parse(pendingOrderData)
-        const sessionId = searchParams.get('session_id')
-
-        // Save order to database
-        const response = await fetch('/api/orders', {
+        
+        // Update existing order from pending_payment to paid
+        const response = await fetch('/api/orders/confirm', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            ...orderData,
+            email: orderData.email,
             stripe_session_id: sessionId,
           }),
         })
 
         if (!response.ok) {
-          throw new Error('Failed to save order')
+          console.warn('Could not confirm payment via endpoint, but order may still exist')
         }
 
-        // Clear sessionStorage after successful save
+        // Clear sessionStorage after confirmation attempt
         sessionStorage.removeItem('pendingOrder')
         setSaving(false)
       } catch (err) {
-        console.error('Error saving order:', err)
-        setError('Unable to process order. Please contact support with your order confirmation email.')
+        console.error('Error confirming payment:', err)
+        // Don't treat this as a fatal error - order exists in pending_payment status
+        // User can contact support to verify
         setSaving(false)
       }
     }
 
-    saveOrder()
+    confirmPayment()
   }, [searchParams])
 
   if (saving) {

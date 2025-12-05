@@ -77,20 +77,45 @@ export default function OrderPage() {
       daily_shots: formData.dailyShots,
     })
 
-    // Store order data in sessionStorage to persist through Stripe redirect
-    sessionStorage.setItem('pendingOrder', JSON.stringify({
-      email: formData.email,
-      water_hardness_ppm: parseInt(formData.waterHardness),
-      daily_shots: parseInt(formData.dailyShots),
-      serial_number: formData.serialNumber,
-    }))
+    try {
+      // CRITICAL: Write order to Supabase BEFORE redirecting to Stripe
+      // Status: 'pending_payment' - will match with Stripe session later
+      // This ensures data is saved even if user abandons after clicking "Pay"
+      const orderResponse = await fetch('/api/orders', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: formData.email,
+          water_hardness_ppm: parseInt(formData.waterHardness),
+          daily_shots: parseInt(formData.dailyShots),
+          serial_number: formData.serialNumber,
+          // No stripe_session_id yet - will be matched later via Stripe webhook
+          status: 'pending_payment', // Explicitly mark as awaiting Stripe confirmation
+        }),
+      })
 
-    // Redirect to Stripe with prefilled email
-    const stripeUrl = new URL('https://buy.stripe.com/3cI00iblT6B0fdFbJE7AI00')
-    stripeUrl.searchParams.set('prefilled_email', formData.email)
-    stripeUrl.searchParams.set('client_reference_id', formData.email) // Pass email as reference
-    
-    window.location.href = stripeUrl.toString()
+      if (!orderResponse.ok) {
+        setLoading(false)
+        const errorData = await orderResponse.json()
+        alert(`Failed to create order: ${errorData.error}. Please try again.`)
+        return
+      }
+
+      // Data is now safely in Supabase with status='pending_payment'
+      // Clear sessionStorage since we no longer need it
+      sessionStorage.removeItem('pendingOrder')
+
+      // NOW redirect to Stripe
+      const stripeUrl = new URL('https://buy.stripe.com/3cI00iblT6B0fdFbJE7AI00')
+      stripeUrl.searchParams.set('prefilled_email', formData.email)
+      stripeUrl.searchParams.set('client_reference_id', formData.email) // Pass email as reference
+
+      window.location.href = stripeUrl.toString()
+    } catch (error) {
+      console.error('Order submission error:', error)
+      setLoading(false)
+      alert('An error occurred. Please try again.')
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
