@@ -17,6 +17,10 @@ CREATE TABLE orders (
   status TEXT DEFAULT 'pending' CHECK (status IN ('pending', 'paid', 'fulfilled', 'refunded')),
   amount_paid INTEGER, -- in cents
   customer_ip TEXT,
+  fulfilled_at TIMESTAMP,                    -- When schedule was delivered to customer
+  ics_file_url TEXT,                         -- URL/path to the .ics calendar file
+  notes TEXT,                                -- Internal notes on order
+  refund_reason TEXT,                        -- Reason for refund if applicable
   CONSTRAINT valid_water_hardness CHECK (water_hardness_ppm > 0 AND water_hardness_ppm < 1000),
   CONSTRAINT valid_daily_shots CHECK (daily_shots > 0 AND daily_shots < 100)
 );
