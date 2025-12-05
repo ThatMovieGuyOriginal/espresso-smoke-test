@@ -30,7 +30,7 @@ export default function Hero() {
           <div className="flex flex-col gap-4">
             <Button
               onClick={handleCTAClick}
-              href="/waitlist"
+              href="/order"
               variant="primary"
               size="lg"
             >

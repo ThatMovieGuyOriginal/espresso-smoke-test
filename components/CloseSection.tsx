@@ -21,11 +21,11 @@ export default function CloseSection() {
       </p>
       <Button
         onClick={handleCTAClick}
-        href="/waitlist"
+        href="/order"
         variant="primary"
         size="lg"
       >
-        GENERATE MY SCHEDULE NOW - $29
+        GENERATE MY SCHEDULE NOW - $49
       </Button>
     </section>
   )

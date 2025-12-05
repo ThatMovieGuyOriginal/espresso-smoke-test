@@ -1443,11 +1443,11 @@ When SMTP is configured, the `/api/waitlist` POST handler will send the confirma
 
 ### 9.4 Monitoring & Debugging (Atomic)
 **Daily Checks (48-72 hours into campaign):**
-- [ ] Vercel Analytics: Any 404 errors? (means broken links)
-- [ ] Vercel Deployments: Latest build status = success?
-- [ ] Supabase: Waitlist table has rows? (confirms form works)
-- [ ] Google Ads: Any "Limited by budget" warnings?
-- [ ] Custom domain: SSL certificate valid?
+- [X] Vercel Analytics: Any 404 errors? (means broken links)
+- [X] Vercel Deployments: Latest build status = success?
+- [X] Supabase: Waitlist table has rows? (confirms form works)
+- [X] Google Ads: Any "Limited by budget" warnings?
+- [X] Custom domain: SSL certificate valid?
 
 **Weekly Checks:**
 - [ ] CTR trending up, down, or stable?
