@@ -1,12 +1,8 @@
 -- Orders table for paid customers
 -- Run this in Supabase SQL Editor after creating the project
 
--- Drop existing policies if re-running
-DROP POLICY IF EXISTS "Allow authenticated insert" ON orders;
-DROP POLICY IF EXISTS "Allow authenticated read" ON orders;
-
--- Drop table if exists (for clean re-runs)
-DROP TABLE IF EXISTS orders;
+-- Drop table if exists (for clean re-runs) - this also drops associated policies
+DROP TABLE IF EXISTS orders CASCADE;
 
 -- Create orders table
 CREATE TABLE orders (
