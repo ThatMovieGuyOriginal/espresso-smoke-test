@@ -1,7 +1,7 @@
 import { createClient } from '@supabase/supabase-js'
 
 // Set your order limit here - when we hit this number, show the waitlist page
-const ORDER_LIMIT = 5
+const ORDER_LIMIT = 15
 
 export async function GET() {
   try {
