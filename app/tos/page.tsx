@@ -89,6 +89,15 @@ export default function TermsOfService() {
             </p>
           </div>
         </div>
+
+        <div className="mt-12">
+          <a
+            href="/"
+            className="inline-block text-accent-orange hover:text-accent-orange-hover transition-colors"
+          >
+            ← Back to Home
+          </a>
+        </div>
       </div>
     </section>
   )

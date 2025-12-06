@@ -3,6 +3,8 @@ export const metadata = {
   description: 'Privacy policy for Espresso Schedules. We only collect email addresses for the waitlist and product updates.',
 }
 
+import Link from 'next/link'
+
 export default function PrivacyPage() {
   return (
     <section className="container-custom py-20">
@@ -34,6 +36,15 @@ export default function PrivacyPage() {
         <p className="text-text-secondary">
           For privacy requests, email: <a href="mailto:contact@espressoschedules.com" className="underline">contact@espressoschedules.com</a>
         </p>
+
+        <div className="mt-8 pt-8 border-t border-dark-border">
+          <Link
+            href="/"
+            className="inline-block text-accent-orange hover:text-accent-orange-hover transition-colors"
+          >
+            ← Back to Home
+          </Link>
+        </div>
       </div>
     </section>
   )
