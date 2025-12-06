@@ -25,7 +25,7 @@ export default function CloseSection() {
         variant="primary"
         size="lg"
       >
-        GENERATE MY SCHEDULE NOW - $49
+        GET MY PROTOCOL NOW - $49
       </Button>
     </section>
   )

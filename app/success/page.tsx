@@ -114,11 +114,11 @@ function SuccessContent() {
           <ul className="space-y-4 text-text-secondary">
             <li className="flex items-start gap-3">
               <span className="text-accent-orange text-xl">1.</span>
-              <span>You'll receive an email confirmation within 5 minutes to the address you provided.</span>
+              <span>Your custom maintenance protocol is being generated now. To ensure precision based on your exact water chemistry and usage profile, <strong>check your inbox within 4 hours</strong>.</span>
             </li>
             <li className="flex items-start gap-3">
               <span className="text-accent-orange text-xl">2.</span>
-              <span>Your custom maintenance schedule (.ics calendar file) will be delivered within 24-48 hours.</span>
+              <span>You'll receive your personalized .ics calendar file cross-referenced against La Marzocco factory PM specifications.</span>
             </li>
             <li className="flex items-start gap-3">
               <span className="text-accent-orange text-xl">3.</span>

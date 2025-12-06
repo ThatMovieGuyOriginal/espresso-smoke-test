@@ -34,7 +34,7 @@ export default function Hero() {
               variant="primary"
               size="lg"
             >
-              GENERATE MY SCHEDULE - $49
+              GET MY PROTOCOL NOW - $49
             </Button>
             <p className="text-xs text-text-secondary flex items-center gap-2">
               🔒 100% Money-Back Guarantee
