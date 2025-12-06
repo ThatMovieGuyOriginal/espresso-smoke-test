@@ -24,8 +24,8 @@ export default function Hero() {
           </h1>
           <p className="text-lg text-text-secondary mb-8 leading-relaxed">
             The generic manual is wrong because it doesn't know <strong>your</strong> water hardness. 
-            Get a precision maintenance schedule customized to your local water chemistry, daily shot count, 
-            and machine usage.
+            Get a precision Preventative Maintenance and Cleaning Schedule customized to your water chemistry (TDS/PPM), daily shot count, 
+            and machine usage — based on factory specifications.
           </p>
           <div className="flex flex-col gap-4">
             <Button
@@ -34,7 +34,7 @@ export default function Hero() {
               variant="primary"
               size="lg"
             >
-              GET MY PROTOCOL NOW - $49
+              GET MY CLEANING SCHEDULE NOW - $49
             </Button>
             <p className="text-xs text-text-secondary flex items-center gap-2">
               🔒 100% Money-Back Guarantee

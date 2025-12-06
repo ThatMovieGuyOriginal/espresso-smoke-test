@@ -69,7 +69,7 @@ function SuccessContent() {
             Processing Your Order...
           </h1>
           <p className="text-lg text-text-secondary">
-            Please wait while we confirm your payment and prepare your custom schedule.
+            Please wait while we confirm your payment and prepare your custom Preventative Maintenance and Cleaning Schedule.
           </p>
         </div>
       </section>
@@ -114,11 +114,11 @@ function SuccessContent() {
           <ul className="space-y-4 text-text-secondary">
             <li className="flex items-start gap-3">
               <span className="text-accent-orange text-xl">1.</span>
-              <span>Your custom maintenance protocol is being generated now. To ensure precision based on your exact water chemistry and usage profile, <strong>check your inbox within 4 hours</strong>.</span>
+              <span>Your custom Preventative Maintenance and Cleaning Schedule is being generated now. To ensure precision based on your exact water chemistry and usage profile, <strong>check your inbox within 4 hours</strong>.</span>
             </li>
             <li className="flex items-start gap-3">
               <span className="text-accent-orange text-xl">2.</span>
-              <span>You'll receive your personalized .ics calendar file cross-referenced against La Marzocco factory PM specifications.</span>
+              <span>You'll receive your personalized .ics calendar file cross-referenced against La Marzocco factory specifications.</span>
             </li>
             <li className="flex items-start gap-3">
               <span className="text-accent-orange text-xl">3.</span>

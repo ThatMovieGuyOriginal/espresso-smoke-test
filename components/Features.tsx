@@ -25,11 +25,11 @@ export default function Features() {
   return (
     <section className="container-custom py-20 md:py-32 border-t border-dark-border">
       <h2 className="text-4xl md:text-5xl font-extrabold text-text-primary mb-4 text-center">
-        The 'Set It and Forget It' Protection Protocol.
+        The 'Set It and Forget It' Preventative Maintenance.
       </h2>
       <p className="text-lg text-text-secondary text-center mb-12 max-w-2xl mx-auto">
-        We generate a <code className="bg-dark-surface px-2 py-1 rounded">JSON-backed</code> Maintenance Protocol 
-        tailored to your serial number.
+        We generate a <code className="bg-dark-surface px-2 py-1 rounded">precision-calibrated</code> Cleaning Schedule 
+        tailored to your machine's operating conditions.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

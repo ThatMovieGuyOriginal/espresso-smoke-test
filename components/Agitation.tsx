@@ -17,28 +17,28 @@ export default function Agitation() {
         <div className="space-y-6 mb-12">
           <div className="bg-dark-surface border border-dark-border rounded-lg p-6">
             <h3 className="font-bold text-text-primary mb-2">
-              1. Your Water Hardness
+              1. Your Water Quality
             </h3>
             <p className="text-text-secondary">
-              50ppm vs 150ppm dramatically changes your descaling needs.
+              Water hardness between 90ppm (9°f) and 150ppm (15°f) requires filtered water per factory specs. Below that? Different procedure entirely.
             </p>
           </div>
 
           <div className="bg-dark-surface border border-dark-border rounded-lg p-6">
             <h3 className="font-bold text-text-primary mb-2">
-              2. Your Workflow
+              2. Your Usage Pattern
             </h3>
             <p className="text-text-secondary">
-              Pulling 2 shots a day vs. 10 shots a day shifts your gasket replacement window by months.
+              Pulling 2 shots daily vs. 20 shots daily shifts your group gasket and diffuser screen replacement intervals by months.
             </p>
           </div>
 
           <div className="bg-dark-surface border border-dark-border rounded-lg p-6">
             <h3 className="font-bold text-text-primary mb-2">
-              3. The "Silent" Failures
+              3. The "Silent" Component Failures
             </h3>
             <p className="text-text-secondary">
-              Vacuum breakers fail slowly. By the time you hear the hiss, moisture is damaging your logic board.
+              Anti-depression valves degrade slowly. By the time you hear the hiss, moisture has damaged your heating element or safety thermostat.
             </p>
           </div>
         </div>

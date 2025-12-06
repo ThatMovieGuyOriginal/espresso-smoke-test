@@ -26,15 +26,15 @@ export default function Authority() {
             <ul className="space-y-2 text-text-secondary">
               <li className="flex items-start gap-2">
                 <span className="text-accent-orange">✓</span>
-                <span>Linea Mini User Manual (V1.2) — Baseline maintenance requirements</span>
+                <span>Linea Mini Installation/Operation Manual (V1.1) — Factory specifications and procedures</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent-orange">✓</span>
-                <span>La Marzocco Spare Parts Catalog (Linea Mini) — 100% part number accuracy</span>
+                <span>La Marzocco Parts Catalog (V1.6) — Original part numbers with exact specifications</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent-orange">✓</span>
-                <span>Preventative Maintenance Checklists (Commercial Linea) — Factory technician protocols</span>
+                <span>Preventative Maintenance and Cleaning procedures — Factory-authorized service intervals</span>
               </li>
             </ul>
           </div>
