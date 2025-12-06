@@ -11,7 +11,7 @@ export default function WaitlistPage() {
         </h1>
         <p className="text-lg text-text-secondary mb-12 leading-relaxed">
           Due to an influx of requests from the <em>Home-Barista</em> community, we are currently 
-          processing schedules in weekly batches to ensure accuracy. We have paused new instant 
+          processing Preventative Maintenance and Cleaning Schedules in weekly batches to ensure accuracy. We have paused new instant 
           downloads for <strong>48 hours</strong>.
         </p>
         <div className="bg-dark-surface border border-dark-border rounded-lg p-8">

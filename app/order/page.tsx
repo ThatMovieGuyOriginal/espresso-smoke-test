@@ -162,11 +162,11 @@ export default function OrderPage() {
           <>
             <div className="text-center mb-12">
               <h1 className="text-5xl md:text-6xl font-extrabold text-text-primary mb-6">
-                Get Your Custom Schedule
+                Get Your Custom Cleaning Schedule
               </h1>
               <p className="text-lg text-text-secondary leading-relaxed">
-                Tell us about your machine and we'll generate a precision maintenance calendar 
-                based on your exact water chemistry and usage patterns.
+                Tell us about your machine and we'll generate a precision Preventative Maintenance and Cleaning calendar 
+                based on your exact water quality (TDS/PPM) and usage pattern.
               </p>
             </div>
 

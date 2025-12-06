@@ -10,7 +10,7 @@ export default function TermsOfService() {
           <div>
             <h2 className="text-2xl font-bold text-text-primary mb-4">1. Overview</h2>
             <p>
-              Espresso Schedules provides custom maintenance schedules for La Marzocco Linea Mini espresso machines. 
+              Espresso Schedules provides custom Preventative Maintenance and Cleaning Schedules for La Marzocco Linea Mini espresso machines. 
               By purchasing our service, you agree to these Terms of Service.
             </p>
           </div>
@@ -18,26 +18,26 @@ export default function TermsOfService() {
           <div>
             <h2 className="text-2xl font-bold text-text-primary mb-4">2. Disclaimer</h2>
             <p className="mb-4">
-              <strong>Our maintenance schedules are recommendations only.</strong> They are not guarantees of machine performance, 
+              <strong>Our Preventative Maintenance and Cleaning Schedules are recommendations only.</strong> They are not guarantees of machine performance, 
               longevity, or functionality. The schedules are based on:
             </p>
             <ul className="list-disc list-inside space-y-2 ml-4">
-              <li>Water hardness (TDS) data you provide</li>
+              <li>Water quality (TDS/PPM) data you provide</li>
               <li>Daily shot count estimates</li>
-              <li>General La Marzocco maintenance protocols</li>
+              <li>Official La Marzocco factory specifications and procedures</li>
             </ul>
             <p className="mt-4">
               We are <strong>not responsible</strong> for machine failures, damage, or operational issues that may occur 
-              despite following our recommendations. Espresso machine maintenance is at your own risk.
+              despite following our recommendations. Espresso machine maintenance is performed at your own risk.
             </p>
           </div>
 
           <div>
             <h2 className="text-2xl font-bold text-text-primary mb-4">3. Accuracy</h2>
             <p>
-              While we strive for accuracy, maintenance schedules can vary based on factors outside our control, including 
+              While we strive for accuracy based on La Marzocco factory specifications, maintenance schedules can vary based on factors outside our control, including 
               but not limited to: water quality fluctuations, machine age, usage intensity, and manufacturing variations. 
-              Always consult your machine's manual and La Marzocco's official guidelines as the primary source of truth.
+              Always consult your machine's Installation/Operation Manual and La Marzocco's official guidelines as the primary source of truth.
             </p>
           </div>
 
@@ -60,7 +60,7 @@ export default function TermsOfService() {
           <div>
             <h2 className="text-2xl font-bold text-text-primary mb-4">6. Intellectual Property</h2>
             <p>
-              The maintenance schedules and all associated materials are proprietary and for your personal use only. 
+              The Preventative Maintenance and Cleaning Schedules and all associated materials are proprietary and for your personal use only. 
               Redistribution, resale, or unauthorized sharing is prohibited.
             </p>
           </div>

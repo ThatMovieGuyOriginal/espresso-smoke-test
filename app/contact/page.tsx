@@ -8,7 +8,7 @@ export default function Contact() {
           Get in Touch
         </h1>
         <p className="text-lg text-text-secondary mb-12 leading-relaxed">
-          Have questions about your custom maintenance schedule or need support? 
+          Have questions about your custom Preventative Maintenance and Cleaning Schedule or need support? 
           We're here to help.
         </p>
 
@@ -38,8 +38,8 @@ export default function Contact() {
           <div className="border-t border-dark-border pt-8">
             <h2 className="text-2xl font-bold text-text-primary mb-4">What We Help With</h2>
             <ul className="text-text-secondary space-y-2 text-left max-w-md mx-auto">
-              <li>✓ Schedule delivery or import issues</li>
-              <li>✓ Questions about your maintenance calendar</li>
+              <li>✓ Schedule delivery or .ics calendar import issues</li>
+              <li>✓ Questions about your Preventative Maintenance calendar</li>
               <li>✓ Technical support and troubleshooting</li>
               <li>✓ Refund requests or order issues</li>
             </ul>
