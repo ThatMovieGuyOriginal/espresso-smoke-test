@@ -25,7 +25,7 @@ export default function CloseSection() {
         variant="primary"
         size="lg"
       >
-        GET MY CLEANING SCHEDULE NOW - $49
+        GET MY CLEANING SCHEDULE NOW - $19
       </Button>
     </section>
   )

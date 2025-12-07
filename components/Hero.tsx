@@ -34,7 +34,7 @@ export default function Hero() {
               variant="primary"
               size="lg"
             >
-              GET MY CLEANING SCHEDULE NOW - $49
+              GET MY CLEANING SCHEDULE NOW - $19
             </Button>
             <p className="text-xs text-text-secondary flex items-center gap-2">
               🔒 100% Money-Back Guarantee

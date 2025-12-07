@@ -37,7 +37,7 @@ CLIENT SIDE (Browser)                    SERVER SIDE (API)           EXTERNAL
 
 2. STRIPE REDIRECT
 ━━━━━━━━━━━━━━━━━
-   User has $49 charge pending
+   User has $9 charge pending
    (Not yet paid, only authorized)
             │
             └──→ Clear sessionStorage
@@ -288,7 +288,7 @@ WEEKLY CHECKS:
    AND created_at > NOW() - INTERVAL '7 days';
 
 3. Revenue:
-   SELECT SUM(49) FROM orders 
+   SELECT SUM(19) FROM orders 
    WHERE status='paid' 
    AND created_at > NOW() - INTERVAL '7 days';
 ```

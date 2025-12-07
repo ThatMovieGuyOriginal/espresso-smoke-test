@@ -106,7 +106,7 @@ export default function OrderPage() {
       sessionStorage.removeItem('pendingOrder')
 
       // NOW redirect to Stripe
-      const stripeUrl = new URL('https://buy.stripe.com/3cI00iblT6B0fdFbJE7AI00')
+      const stripeUrl = new URL('https://buy.stripe.com/cNi9AS1Lj1gG4z18xs7AI01')
       stripeUrl.searchParams.set('prefilled_email', formData.email)
       stripeUrl.searchParams.set('client_reference_id', formData.email) // Pass email as reference
 
@@ -274,7 +274,7 @@ export default function OrderPage() {
             disabled={loading}
             className="w-full bg-accent-orange text-black font-bold py-4 px-8 rounded-md uppercase tracking-wider transition-all duration-200 hover:bg-accent-orange-hover hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {loading ? 'REDIRECTING...' : 'PROCEED TO PAYMENT - $49'}
+            {loading ? 'REDIRECTING...' : 'PROCEED TO PAYMENT - $19'}
           </button>
 
           <p className="text-xs text-text-secondary text-center mt-4">
