@@ -27,6 +27,9 @@ export default function CloseSection() {
       >
         GET MY CLEANING SCHEDULE NOW - $19
       </Button>
+      <p className="text-sm text-text-secondary mt-6">
+        ⚡ Beta Launch Pricing — Locking in early adopter rate
+      </p>
     </section>
   )
 }

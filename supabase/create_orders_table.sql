@@ -14,7 +14,7 @@ CREATE TABLE orders (
   stripe_session_id TEXT UNIQUE,
   stripe_payment_intent TEXT,
   created_at TIMESTAMP DEFAULT now(),
-  status TEXT DEFAULT 'pending' CHECK (status IN ('pending', 'paid', 'fulfilled', 'refunded')),
+  status TEXT DEFAULT 'pending' CHECK (status IN ('pending', 'pending_payment', 'paid', 'fulfilled', 'refunded')),
   amount_paid INTEGER, -- in cents
   customer_ip TEXT,
   fulfilled_at TIMESTAMP,                    -- When schedule was delivered to customer
