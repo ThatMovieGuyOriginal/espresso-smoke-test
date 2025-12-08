@@ -114,7 +114,7 @@ function SuccessContent() {
           <ul className="space-y-4 text-text-secondary">
             <li className="flex items-start gap-3">
               <span className="text-accent-orange text-xl">1.</span>
-              <span>Your custom Preventative Maintenance and Cleaning Schedule is being generated now. To ensure precision based on your exact water chemistry and usage profile, <strong>check your inbox within 4 hours</strong>.</span>
+              <span>Your custom Preventative Maintenance and Cleaning Schedule is being generated now. To ensure precision based on your exact water chemistry and usage profile, <strong>check your inbox within 24 hours</strong>.</span>
             </li>
             <li className="flex items-start gap-3">
               <span className="text-accent-orange text-xl">2.</span>

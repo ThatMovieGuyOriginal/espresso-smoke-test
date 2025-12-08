@@ -77,11 +77,13 @@ export default function OrderPage() {
       daily_shots: formData.dailyShots,
     })
 
+    // CRITICAL: Always redirect to Stripe, even if database save fails
+    // Philosophy: Payment > Data Collection
+    // We can email customers for missing details, but can't recover lost sales
+    
     try {
-      // CRITICAL: Write order to Supabase BEFORE redirecting to Stripe
-      // Status: 'pending_payment' - will match with Stripe session later
-      // This ensures data is saved even if user abandons after clicking "Pay"
-      const orderResponse = await fetch('/api/orders', {
+      // Attempt to save order details to Supabase
+      await fetch('/api/orders', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -89,33 +91,26 @@ export default function OrderPage() {
           water_hardness_ppm: parseInt(formData.waterHardness),
           daily_shots: parseInt(formData.dailyShots),
           serial_number: formData.serialNumber,
-          // No stripe_session_id yet - will be matched later via Stripe webhook
-          status: 'pending_payment', // Explicitly mark as awaiting Stripe confirmation
+          status: 'pending_payment',
         }),
       })
-
-      if (!orderResponse.ok) {
-        setLoading(false)
-        const errorData = await orderResponse.json()
-        alert(`Failed to create order: ${errorData.error}. Please try again.`)
-        return
-      }
-
-      // Data is now safely in Supabase with status='pending_payment'
-      // Clear sessionStorage since we no longer need it
-      sessionStorage.removeItem('pendingOrder')
-
-      // NOW redirect to Stripe
-      const stripeUrl = new URL('https://buy.stripe.com/cNi9AS1Lj1gG4z18xs7AI01')
-      stripeUrl.searchParams.set('prefilled_email', formData.email)
-      stripeUrl.searchParams.set('client_reference_id', formData.email) // Pass email as reference
-
-      window.location.href = stripeUrl.toString()
+      // Database save succeeded - great! Continue to Stripe.
     } catch (error) {
-      console.error('Order submission error:', error)
-      setLoading(false)
-      alert('An error occurred. Please try again.')
+      // Database save failed - log it but DON'T STOP the checkout
+      console.error('Failed to save order details (will still process payment):', error)
+      track('order_save_failed', { 
+        email: formData.email,
+        error: error instanceof Error ? error.message : 'unknown'
+      })
+      // Continue to Stripe regardless
     }
+
+    // ALWAYS redirect to Stripe - this is the critical part
+    const stripeUrl = new URL('https://buy.stripe.com/cNi9AS1Lj1gG4z18xs7AI01')
+    stripeUrl.searchParams.set('prefilled_email', formData.email)
+    stripeUrl.searchParams.set('client_reference_id', formData.email)
+    
+    window.location.href = stripeUrl.toString()
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
