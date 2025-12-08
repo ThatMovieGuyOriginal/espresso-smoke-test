@@ -13,27 +13,6 @@ export default function OrderPage() {
   })
   const [loading, setLoading] = useState(false)
   const [errors, setErrors] = useState<Record<string, string>>({})
-  const [isClosed, setIsClosed] = useState(false)
-  const [checkingStatus, setCheckingStatus] = useState(true)
-  const [orderCount, setOrderCount] = useState(0)
-
-  // Check if we've hit the order limit
-  useEffect(() => {
-    const checkOrderStatus = async () => {
-      try {
-        const response = await fetch('/api/order-status')
-        const data = await response.json()
-        setIsClosed(data.isClosed)
-        setOrderCount(data.orderCount)
-      } catch (err) {
-        console.error('Error checking order status:', err)
-        setIsClosed(false) // Fail open - show order form if API fails
-      } finally {
-        setCheckingStatus(false)
-      }
-    }
-    checkOrderStatus()
-  }, [])
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {}
@@ -125,47 +104,17 @@ export default function OrderPage() {
   return (
     <section className="container-custom min-h-screen flex flex-col items-center justify-center py-16">
       <div className="max-w-2xl w-full">
-        {/* Show waitlist message if we've hit order limit */}
-        {!checkingStatus && isClosed ? (
-          <div className="text-center">
-            <h1 className="text-5xl md:text-6xl font-extrabold text-text-primary mb-6">
-              We're Currently at Capacity
-            </h1>
-            <p className="text-lg text-text-secondary mb-8 leading-relaxed">
-              Due to overwhelming demand, we've hit our manual fulfillment limit for this round. 
-              We're processing {orderCount} orders and will be ready to accept more soon.
-            </p>
-            <div className="bg-dark-surface border border-dark-border rounded-lg p-8 mb-8">
-              <p className="text-text-secondary mb-6">
-                Join our waitlist and we'll notify you as soon as we reopen for orders.
-              </p>
-              <Link
-                href="/waitlist"
-                className="inline-block bg-accent-green text-black font-bold py-4 px-8 rounded-md uppercase tracking-wider hover:opacity-90 transition-opacity"
-              >
-                Join Waitlist
-              </Link>
-            </div>
-            <Link
-              href="/"
-              className="inline-block text-accent-orange hover:text-accent-orange-hover transition-colors"
-            >
-              ← Back to Home
-            </Link>
-          </div>
-        ) : (
-          <>
-            <div className="text-center mb-12">
-              <h1 className="text-5xl md:text-6xl font-extrabold text-text-primary mb-6">
-                Get Your Custom Cleaning Schedule
-              </h1>
-              <p className="text-lg text-text-secondary leading-relaxed">
-                Tell us about your machine and we'll generate a precision Preventative Maintenance and Cleaning calendar 
-                based on your exact water quality (TDS/PPM) and usage pattern.
-              </p>
-            </div>
+        <div className="text-center mb-12">
+          <h1 className="text-5xl md:text-6xl font-extrabold text-text-primary mb-6">
+            Get Your Custom Cleaning Schedule
+          </h1>
+          <p className="text-lg text-text-secondary leading-relaxed">
+            Tell us about your machine and we'll generate a precision Preventative Maintenance and Cleaning calendar 
+            based on your exact water quality (TDS/PPM) and usage pattern.
+          </p>
+        </div>
 
-            <form onSubmit={handleSubmit} className="bg-dark-surface border border-dark-border rounded-lg p-8 space-y-6">
+        <form onSubmit={handleSubmit} className="bg-dark-surface border border-dark-border rounded-lg p-8 space-y-6">
           {/* Email */}
           <div>
             <label htmlFor="email" className="block text-sm font-bold text-text-primary mb-2">
@@ -276,8 +225,6 @@ export default function OrderPage() {
             🔒 Secure payment via Stripe. You'll enter payment details on the next page.
           </p>
         </form>
-          </>
-        )}
       </div>
     </section>
   )
