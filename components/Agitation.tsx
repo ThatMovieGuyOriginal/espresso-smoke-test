@@ -1,63 +1,65 @@
 'use client'
 
-import Image from 'next/image'
-
 export default function Agitation() {
   return (
-    <section className="container-custom py-20 md:py-32 border-t border-dark-border">
+    <section className="container-custom py-20 md:py-32 border-t border-dark-border bg-gray-50">
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-text-primary mb-6">
-          Your Manual is Guessing.
+        <h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
+          Most Espresso Owners Are Running Wrong Water Chemistry.
         </h2>
-        <p className="text-lg text-text-secondary mb-12">
-          La Marzocco builds incredible machines, but their manual assumes 'standard' usage. 
-          It doesn't account for:
+        <p className="text-lg text-gray-700 mb-12">
+          They're either scaling up the boiler or corroding it from the inside out. And they have no idea which one.
         </p>
 
         <div className="space-y-6 mb-12">
-          <div className="bg-dark-surface border border-dark-border rounded-lg p-6">
-            <h3 className="font-bold text-text-primary mb-2">
-              1. Your Water Quality
+          <div className="bg-white border-2 border-red-300 rounded-lg p-6">
+            <h3 className="font-bold text-red-600 mb-2 text-lg">
+              The Scale Disaster (Hard Water)
             </h3>
-            <p className="text-text-secondary">
-              Water hardness between 90ppm (9°f) and 150ppm (15°f) requires filtered water per factory specs. Below that? Different procedure entirely.
+            <p className="text-gray-700">
+              Tap water over 200 TDS deposits mineral buildup on heating elements, group gaskets, and diffusers. 
+              It hardens into rock. Descaling chemicals can delay it but can't stop the eventual $2,000+ boiler replacement.
             </p>
           </div>
 
-          <div className="bg-dark-surface border border-dark-border rounded-lg p-6">
-            <h3 className="font-bold text-text-primary mb-2">
-              2. Your Usage Pattern
+          <div className="bg-white border-2 border-orange-300 rounded-lg p-6">
+            <h3 className="font-bold text-orange-600 mb-2 text-lg">
+              The Corrosion Disaster (Pure Water)
             </h3>
-            <p className="text-text-secondary">
-              Pulling 2 shots daily vs. 20 shots daily shifts your group gasket and diffuser screen replacement intervals by months.
+            <p className="text-gray-700">
+              RO water and distilled water (0 TDS) are chemically unstable. They leach copper and stainless steel from your boiler, 
+              group head, and gaskets. The damage is silent and irreversible.
             </p>
           </div>
 
-          <div className="bg-dark-surface border border-dark-border rounded-lg p-6">
-            <h3 className="font-bold text-text-primary mb-2">
-              3. The "Silent" Component Failures
+          <div className="bg-white border-2 border-green-300 rounded-lg p-6">
+            <h3 className="font-bold text-green-600 mb-2 text-lg">
+              The Solution (Balanced Water - LSI 0)
             </h3>
-            <p className="text-text-secondary">
-              Anti-depression valves degrade slowly. By the time you hear the hiss, moisture has damaged your heating element or safety thermostat.
+            <p className="text-gray-700">
+              A Langelier Saturation Index of 0 (or near 0) means your water is chemically stable. It won't scale. It won't corrode. 
+              Your machine stays safe and your warranty stays intact.
             </p>
           </div>
         </div>
 
-        {/* Visual: Broken Heater Coil */}
-        <div className="mb-12 flex justify-center">
-          <Image
-            src="/broken-heater-coil.png"
-            alt="Corroded and broken heater coil showing scale buildup damage"
-            width={400}
-            height={300}
-            className="rounded-lg shadow-xl border border-dark-border"
-          />
-        </div>
-
-        <div className="bg-dark-surface border-l-4 border-accent-orange rounded-lg p-8">
-          <p className="text-xl text-text-primary">
-            Result: A <span className="text-red-500 font-bold">$1,200 service bill</span> and 6 weeks without coffee.
+        <div className="bg-black text-white rounded-lg p-8 mb-12">
+          <p className="text-2xl font-bold mb-3">
+            Here's The Problem:
           </p>
+          <p className="text-lg">
+            Most people don't know their water chemistry. They guessing. They buy random "espresso water" products that might not match 
+            <em> their </em> specific water. Or they use tap water and hope.
+          </p>
+          <p className="text-lg mt-4">
+            We calculate YOUR exact water parameters and prescribe the exact recipe to hit LSI 0 for YOUR {' '}
+            <span className="font-bold">specific machine</span>.
+          </p>
+        </div>
+
+        <p className="text-center text-gray-700 text-lg">
+          That's the $97 audit. That's the certainty you need.
+        </p>
         </div>
       </div>
     </section>

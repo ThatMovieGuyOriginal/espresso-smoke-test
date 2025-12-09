@@ -2,60 +2,139 @@
 
 import { Button } from "@/components/Button";
 import { track } from "@vercel/analytics";
-import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 
 export default function Hero() {
+  const searchParams = useSearchParams()
+  const machineType = searchParams.get('machine') || 'linea_mini'
+  
+  // Machine-specific copy
+  const getMachineConfig = () => {
+    const configs: Record<string, any> = {
+      linea_mini: {
+        name: 'Linea Mini',
+        warranty: 'voiding your Linea Mini warranty',
+        problem: 'Heating element corrosion',
+        fear: 'A boiler replacement costs $2,000+',
+      },
+      linea_micra: {
+        name: 'Linea Micra',
+        warranty: 'voiding your Linea Micra warranty',
+        problem: 'Boiler scaling and corrosion',
+        fear: 'You stretched your budget to buy this. Don\'t ruin it.',
+      },
+      gs3: {
+        name: 'GS3',
+        warranty: 'voiding your GS3 warranty',
+        problem: 'Saturated group head calcification',
+        fear: 'A seized needle valve is a $3,000+ repair nightmare.',
+      },
+      slayer: {
+        name: 'Slayer',
+        warranty: 'voiding your Slayer warranty',
+        problem: 'Needle valve precision loss',
+        fear: 'The precision that makes Slayer special is destroyed by scale.',
+      },
+    }
+    return configs[machineType] || configs.linea_mini
+  }
+
+  const config = getMachineConfig()
+
   const handleCTAClick = () => {
     track("hero_cta_clicked", {
       location: "hero_section",
-      action: "generate_schedule",
+      machine_type: machineType,
     })
   }
 
   return (
-    <section className="container-custom py-16 md:py-32">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        {/* Left: Text */}
-        <div>
-          <h1 className="text-4xl md:text-6xl font-extrabold text-text-primary mb-6 leading-tight">
-            Don't Let Scale{" "}
-            <span className="text-red-500">Kill</span>{" "}
-            Your Linea Mini.
-          </h1>
-          <p className="text-lg text-text-secondary mb-8 leading-relaxed">
-            The generic manual is wrong because it doesn't know <strong>your</strong> water hardness. 
-            Get a precision Preventative Maintenance and Cleaning Schedule customized to your water chemistry (TDS/PPM), daily shot count, 
-            and machine usage — based on factory specifications.
-          </p>
-          <div className="flex flex-col gap-4">
-            <Button
-              onClick={handleCTAClick}
-              href="/order"
-              variant="primary"
-              size="lg"
-            >
-              GET MY CLEANING SCHEDULE NOW - $19
-            </Button>
-            <p className="text-xs text-text-secondary flex items-center gap-2">
-              ⚡ Founders Pricing — Reserved for first 100 customers
-            </p>
-            <p className="text-xs text-text-secondary flex items-center gap-2">
-              🔒 100% Money-Back Guarantee
-            </p>
+    <section className="container-custom py-16 md:py-32 bg-white">
+      <div className="max-w-3xl mx-auto text-center">
+        {/* Clinical Headline - The Fear Hook */}
+        <h1 className="text-5xl md:text-6xl font-bold text-black mb-6 leading-tight">
+          Is Your Water {config.warranty}?
+        </h1>
+
+        {/* Sub-headline - The Solution */}
+        <h2 className="text-2xl md:text-3xl font-semibold text-gray-700 mb-8 leading-relaxed">
+          Stop Guessing with Test Strips. We Calculate Your Exact Langelier Saturation Index (LSI) 
+          and Prescribe a Custom Water Recipe Safe for {config.name}.
+        </h2>
+
+        {/* The Pain Points - Why They Need This */}
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-8 mb-12">
+          <h3 className="text-lg font-bold text-black mb-6">The Three Traps Every {config.name} Owner Falls Into:</h3>
+          <div className="space-y-4 text-left">
+            <div className="flex gap-4">
+              <div className="flex-shrink-0">
+                <div className="text-red-600 font-bold text-xl">1.</div>
+              </div>
+              <div>
+                <p className="font-semibold text-black">The Scale Trap</p>
+                <p className="text-gray-700">Hard tap water (high TDS) calcifies heating elements and group heads. {config.problem}.</p>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <div className="flex-shrink-0">
+                <div className="text-red-600 font-bold text-xl">2.</div>
+              </div>
+              <div>
+                <p className="font-semibold text-black">The Corrosion Trap</p>
+                <p className="text-gray-700">Pure water (0 TDS) and RO water leach copper and stainless steel. Your boiler slowly dissolves.</p>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <div className="flex-shrink-0">
+                <div className="text-red-600 font-bold text-xl">3.</div>
+              </div>
+              <div>
+                <p className="font-semibold text-black">The Flavor Gap</p>
+                <p className="text-gray-700">Incorrect mineralization (Magnesium, Potassium, Bicarbonate) flattens your extraction and mutes flavor.</p>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Visual: Linea Mini */}
-        <div className="flex justify-center">
-          <Image
-            src="/linea-mini-hero.png"
-            alt="La Marzocco Linea Mini espresso machine"
-            width={500}
-            height={500}
-            priority
-            className="rounded-lg shadow-2xl"
-          />
+        {/* The Offer - What They Get */}
+        <div className="bg-blue-50 border border-blue-200 rounded-lg p-8 mb-12">
+          <h3 className="text-lg font-bold text-black mb-4">What You Get (24-Hour Turnaround):</h3>
+          <ul className="space-y-3 text-left max-w-2xl mx-auto">
+            <li className="flex gap-3">
+              <span className="text-green-600 font-bold">✓</span>
+              <span className="text-gray-700"><strong>LSI Certified Analysis:</strong> We run your water parameters through the La Marzocco Water Calculator.</span>
+            </li>
+            <li className="flex gap-3">
+              <span className="text-green-600 font-bold">✓</span>
+              <span className="text-gray-700"><strong>The Recipe Card:</strong> Exact grams of Potassium Bicarbonate + Epsom Salt per gallon for your specific water.</span>
+            </li>
+            <li className="flex gap-3">
+              <span className="text-green-600 font-bold">✓</span>
+              <span className="text-gray-700"><strong>Resale Certificate:</strong> A dated digital log proving your {config.name} ran on spec-compliant water.</span>
+            </li>
+          </ul>
         </div>
+
+        {/* The CTA */}
+        <div className="mb-8">
+          <Button
+            onClick={handleCTAClick}
+            href={`/order?machine=${machineType}`}
+            variant="primary"
+            size="lg"
+            className="bg-black text-white hover:bg-gray-800 text-lg px-8 py-4"
+          >
+            REQUEST WATER AUDIT - $97
+          </Button>
+          <p className="text-sm text-gray-600 mt-3">
+            24-Hour Turnaround. Certified by Industrial Mechanic.
+          </p>
+        </div>
+
+        {/* Reassurance */}
+        <p className="text-sm text-gray-700">
+          🔒 <strong>Money-Back Guarantee:</strong> If the recipe doesn't solve your water concerns, get your $97 back. No questions asked.
+        </p>
       </div>
     </section>
   )
