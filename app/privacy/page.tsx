@@ -1,46 +1,82 @@
 export const metadata = {
-  title: 'Privacy Policy - Espresso Schedules',
-  description: 'Privacy policy for Espresso Schedules. We only collect email addresses for the waitlist and product updates.',
+  title: 'Privacy Policy - La Marzocco Water Audit',
+  description: 'Privacy policy for La Marzocco Water Audit. We collect minimal data to deliver your certified water analysis.',
 }
 
 import Link from 'next/link'
 
 export default function PrivacyPage() {
   return (
-    <section className="container-custom py-20">
-      <div className="max-w-3xl mx-auto bg-dark-surface border border-dark-border rounded-lg p-8">
-        <h1 className="text-3xl font-extrabold text-text-primary mb-4">Privacy Policy</h1>
-        <p className="text-text-secondary mb-4">
-          We collect only the data necessary to operate the waitlist: email addresses. We use emails to
-          notify users about waitlist status and product updates. We do not sell or share email addresses
-          with third parties. Data is stored in Supabase and retained until unsubscribed or deleted.
+    <section className="container-custom py-20 bg-white min-h-screen">
+      <div className="max-w-3xl mx-auto">
+        <h1 className="text-5xl md:text-6xl font-bold text-black mb-4">Privacy Policy</h1>
+        <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+          We protect your water chemistry data and email address. We collect only what's needed to deliver your certified LSI analysis and custom recipe.
         </p>
 
-        <h2 className="text-xl font-bold text-text-primary mt-6 mb-2">Your Rights</h2>
-        <p className="text-text-secondary mb-4">
-          You can request deletion of your email by contacting us at contact@espressoschedules.com or by
-          replying to any email with the word "unsubscribe".
-        </p>
+        <div className="space-y-8 text-gray-700 leading-relaxed">
+          <div>
+            <h2 className="text-2xl font-bold text-black mb-3">What We Collect</h2>
+            <ul className="list-disc list-inside space-y-2 ml-2">
+              <li>Email address (for order confirmation and results delivery)</li>
+              <li>Water hardness/TDS data (for LSI calculation)</li>
+              <li>Daily shot count (for usage recommendations)</li>
+              <li>Machine type and serial number (for factory-aligned recipes)</li>
+              <li>Water source information (tap, bottled, or mixed)</li>
+            </ul>
+          </div>
 
-        <h2 className="text-xl font-bold text-text-primary mt-6 mb-2">Double Opt-In & Unsubscribe</h2>
-        <p className="text-text-secondary mb-4">
-          We use a double opt-in process: after you submit your email we will send a confirmation link
-          that you must click to confirm your subscription. This prevents accidental signups.
-        </p>
-        <p className="text-text-secondary mb-4">
-          To unsubscribe, click the unsubscribe link in any email or visit our unsubscribe endpoint and provide
-          your email address. We will mark your contact as unsubscribed and stop sending notifications.
-        </p>
+          <div>
+            <h2 className="text-2xl font-bold text-black mb-3">How We Use Your Data</h2>
+            <p className="mb-3">
+              Your data is used exclusively to:
+            </p>
+            <ul className="list-disc list-inside space-y-2 ml-2">
+              <li>Calculate your Langelier Saturation Index (LSI)</li>
+              <li>Generate your custom water recipe</li>
+              <li>Deliver your water audit report and resale certificate</li>
+              <li>Provide support if you have questions about your results</li>
+            </ul>
+          </div>
 
-        <h2 className="text-xl font-bold text-text-primary mt-6 mb-2">Contact</h2>
-        <p className="text-text-secondary">
-          For privacy requests, email: <a href="mailto:contact@espressoschedules.com" className="underline">contact@espressoschedules.com</a>
-        </p>
+          <div>
+            <h2 className="text-2xl font-bold text-black mb-3">Data Security & Retention</h2>
+            <p className="mb-3">
+              Your data is encrypted and stored in Supabase with Role-Based Access Control. We do not share, sell, or distribute your information to third parties.
+            </p>
+            <p>
+              We retain your order data for 7 years for warranty and resale certificate purposes. You can request deletion at any time.
+            </p>
+          </div>
 
-        <div className="mt-8 pt-8 border-t border-dark-border">
+          <div>
+            <h2 className="text-2xl font-bold text-black mb-3">Your Rights</h2>
+            <p>
+              You have the right to request access, correction, or deletion of your data at any time. Contact us at support@wateraudit.lamarzocco.com and we'll respond within 7 business days.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-bold text-black mb-3">Contact</h2>
+            <p>
+              For privacy questions or data requests, email:{' '}
+              <a href="mailto:support@wateraudit.lamarzocco.com" className="font-bold text-black hover:underline">
+                support@wateraudit.lamarzocco.com
+              </a>
+            </p>
+          </div>
+
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mt-8">
+            <p className="text-sm text-gray-600">
+              <strong>Last Updated:</strong> December 8, 2025
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-12">
           <Link
             href="/"
-            className="inline-block text-accent-orange hover:text-accent-orange-hover transition-colors"
+            className="inline-block text-black font-bold hover:underline transition-colors"
           >
             ← Back to Home
           </Link>

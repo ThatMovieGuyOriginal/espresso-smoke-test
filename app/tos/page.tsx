@@ -1,91 +1,86 @@
 export default function TermsOfService() {
   return (
-    <section className="container-custom py-16 md:py-24">
+    <section className="container-custom py-16 md:py-24 bg-white min-h-screen">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-5xl md:text-6xl font-extrabold text-text-primary mb-12">
+        <h1 className="text-5xl md:text-6xl font-bold text-black mb-12">
           Terms of Service
         </h1>
 
-        <div className="space-y-8 text-text-secondary leading-relaxed">
+        <div className="space-y-8 text-gray-700 leading-relaxed">
           <div>
-            <h2 className="text-2xl font-bold text-text-primary mb-4">1. Overview</h2>
+            <h2 className="text-2xl font-bold text-black mb-4">1. Service Description</h2>
             <p>
-              Espresso Schedules provides custom Preventative Maintenance and Cleaning Schedules for La Marzocco Linea Mini espresso machines. 
-              By purchasing our service, you agree to these Terms of Service.
+              La Marzocco Water Audit provides certified water chemistry analysis (LSI calculation) and custom mineralization recipes for La Marzocco espresso machines. 
+              By purchasing, you agree to these Terms of Service.
             </p>
           </div>
 
           <div>
-            <h2 className="text-2xl font-bold text-text-primary mb-4">2. Disclaimer</h2>
+            <h2 className="text-2xl font-bold text-black mb-4">2. Disclaimer of Warranties</h2>
             <p className="mb-4">
-              <strong>Our Preventative Maintenance and Cleaning Schedules are recommendations only.</strong> They are not guarantees of machine performance, 
-              longevity, or functionality. The schedules are based on:
+              <strong>Our water analysis and recipes are scientific recommendations based on your provided data.</strong> We do not guarantee:
             </p>
             <ul className="list-disc list-inside space-y-2 ml-4">
-              <li>Water quality (TDS/PPM) data you provide</li>
-              <li>Daily shot count estimates</li>
-              <li>Official La Marzocco factory specifications and procedures</li>
+              <li>Elimination of all scale or corrosion (LSI 0 is a target, not a guarantee)</li>
+              <li>Improvement in espresso extraction or flavor</li>
+              <li>Extended machine lifespan or warranty coverage</li>
             </ul>
             <p className="mt-4">
-              We are <strong>not responsible</strong> for machine failures, damage, or operational issues that may occur 
-              despite following our recommendations. Espresso machine maintenance is performed at your own risk.
+              Machine maintenance is performed at your own risk. We are not responsible for machine damage, failure, or operational issues.
             </p>
           </div>
 
           <div>
-            <h2 className="text-2xl font-bold text-text-primary mb-4">3. Accuracy</h2>
+            <h2 className="text-2xl font-bold text-black mb-4">3. Data Accuracy</h2>
             <p>
-              While we strive for accuracy based on La Marzocco factory specifications, maintenance schedules can vary based on factors outside our control, including 
-              but not limited to: water quality fluctuations, machine age, usage intensity, and manufacturing variations. 
-              Always consult your machine's Installation/Operation Manual and La Marzocco's official guidelines as the primary source of truth.
+              Our analysis is accurate to the data you provide. If your water chemistry changes, your recipe may no longer be valid. 
+              We recommend retesting annually or if you change water sources.
             </p>
           </div>
 
           <div>
-            <h2 className="text-2xl font-bold text-text-primary mb-4">4. Limitation of Liability</h2>
+            <h2 className="text-2xl font-bold text-black mb-4">4. Limitation of Liability</h2>
             <p>
-              Espresso Schedules shall not be liable for any indirect, incidental, special, consequential, or punitive damages, 
-              including but not limited to loss of profits, data, or use arising from your use of our service or reliance on our schedules.
+              La Marzocco Water Audit shall not be liable for any damages (direct, indirect, or consequential) arising from use of our analysis, recipes, or recommendations.
             </p>
           </div>
 
           <div>
-            <h2 className="text-2xl font-bold text-text-primary mb-4">5. Refunds</h2>
+            <h2 className="text-2xl font-bold text-black mb-4">5. Refund Policy</h2>
             <p>
-              Purchases are non-refundable after payment is processed. If you experience a technical issue with schedule delivery, 
-              please contact us for support.
+              We offer a 30-day money-back guarantee if your water audit doesn't meet your expectations. 
+              Contact us at support@wateraudit.lamarzocco.com with your order number.
             </p>
           </div>
 
           <div>
-            <h2 className="text-2xl font-bold text-text-primary mb-4">6. Intellectual Property</h2>
+            <h2 className="text-2xl font-bold text-black mb-4">6. Intellectual Property</h2>
             <p>
-              The Preventative Maintenance and Cleaning Schedules and all associated materials are proprietary and for your personal use only. 
-              Redistribution, resale, or unauthorized sharing is prohibited.
+              Your custom water recipe and LSI report are for personal use only. Redistribution, resale, or commercial use is prohibited.
             </p>
           </div>
 
           <div>
-            <h2 className="text-2xl font-bold text-text-primary mb-4">7. Changes to Terms</h2>
+            <h2 className="text-2xl font-bold text-black mb-4">7. Warranty Disclaimer</h2>
             <p>
-              We reserve the right to modify these terms at any time. Continued use of our service constitutes acceptance of updated terms.
+              We provide no warranty that using our recipes will preserve your machine's warranty with La Marzocco. 
+              Consult your machine's manual and La Marzocco's water chemistry guidelines before implementing any recipe.
             </p>
           </div>
 
           <div>
-            <h2 className="text-2xl font-bold text-text-primary mb-4">8. Contact</h2>
+            <h2 className="text-2xl font-bold text-black mb-4">8. Contact</h2>
             <p>
-              For questions regarding these terms, please contact us at{' '}
-              <a href="mailto:support@espressoschedules.com" className="text-accent-orange hover:text-accent-orange-hover">
-                support@espressoschedules.com
+              For questions about these terms, email:{' '}
+              <a href="mailto:support@wateraudit.lamarzocco.com" className="font-bold text-black hover:underline">
+                support@wateraudit.lamarzocco.com
               </a>
-              .
             </p>
           </div>
 
-          <div className="bg-dark-surface border-l-4 border-accent-orange rounded-lg p-6 mt-12">
-            <p className="text-sm">
-              <strong>Last Updated:</strong> December 4, 2025
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mt-12">
+            <p className="text-sm text-gray-600">
+              <strong>Last Updated:</strong> December 8, 2025
             </p>
           </div>
         </div>
@@ -93,7 +88,7 @@ export default function TermsOfService() {
         <div className="mt-12">
           <a
             href="/"
-            className="inline-block text-accent-orange hover:text-accent-orange-hover transition-colors"
+            className="inline-block text-black font-bold hover:underline transition-colors"
           >
             ← Back to Home
           </a>

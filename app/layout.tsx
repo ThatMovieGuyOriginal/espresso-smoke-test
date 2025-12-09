@@ -18,32 +18,32 @@ const roboto = Roboto({
 })
 
 export const metadata: Metadata = {
-  title: "Espresso Maintenance Schedule | Protect Your Linea Mini",
+  title: "La Marzocco Water Audit | Certified LSI Analysis & Custom Recipe",
   description:
-    "Get a custom maintenance schedule for your La Marzocco Linea Mini based on your water chemistry and usage. Prevent costly repairs.",
-  keywords: ["espresso machine", "maintenance", "linea mini", "la marzocco"],
-  authors: [{ name: "Espresso Schedules" }],
+    "Get your Langelier Saturation Index (LSI) calculated and receive a custom water mineralization recipe for your La Marzocco machine. Prevent scale and corrosion. 24-hour turnaround.",
+  keywords: ["water chemistry", "espresso water", "LSI", "la marzocco", "water audit", "linea mini", "linea micra", "gs3", "slayer"],
+  authors: [{ name: "La Marzocco Water Audit" }],
   openGraph: {
-    title: "Espresso Maintenance Schedule | Protect Your Linea Mini",
+    title: "La Marzocco Water Audit | LSI Calculation & Custom Recipe",
     description:
-      "Custom maintenance schedule for your La Marzocco machine",
-    url: "https://espressoschedules.com",
-    siteName: "Espresso Schedules",
+      "Certified water chemistry analysis with custom mineralization recipe for your machine. Protect your investment.",
+    url: "https://wateraudit.lamarzocco.com",
+    siteName: "La Marzocco Water Audit",
     images: [
       {
-        url: "https://espressoschedules.com/og-image.jpg",
+        url: "https://wateraudit.lamarzocco.com/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "La Marzocco Linea Mini",
+        alt: "La Marzocco Water Audit",
       },
     ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Espresso Maintenance Schedule | Protect Your Linea Mini",
-    description: "Custom maintenance schedule for your La Marzocco machine",
-    images: ["https://espressoschedules.com/og-image.jpg"],
+    title: "La Marzocco Water Audit | LSI Analysis & Custom Recipe",
+    description: "Prevent scale and corrosion with certified water chemistry analysis.",
+    images: ["https://wateraudit.lamarzocco.com/og-image.jpg"],
   },
 }
 
