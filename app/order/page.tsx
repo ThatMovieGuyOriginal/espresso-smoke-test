@@ -67,7 +67,7 @@ function OrderContent() {
     }
 
     // ALWAYS redirect to Stripe - this is the critical part
-    const stripeUrl = new URL('https://buy.stripe.com/cNi9AS1Lj1gG4z18xs7AI01')
+    const stripeUrl = new URL('https://buy.stripe.com/9B6bJ00Hf7F44z1aFA7AI02')
     stripeUrl.searchParams.set('prefilled_email', email)
     stripeUrl.searchParams.set('client_reference_id', email)
     
