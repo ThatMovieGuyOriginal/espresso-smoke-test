@@ -60,7 +60,6 @@ export default function Agitation() {
         <p className="text-center text-gray-700 text-lg">
           That's the $97 audit. That's the certainty you need.
         </p>
-        </div>
       </div>
     </section>
   )
