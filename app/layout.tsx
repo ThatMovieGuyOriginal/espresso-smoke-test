@@ -11,39 +11,39 @@ const inter = Inter({
 })
 
 const roboto = Roboto({
-  weight: ["400", "700", "800"],
+  weight: ["400", "700", "900"],
   subsets: ["latin"],
   display: "swap",
   variable: "--font-roboto",
 })
 
 export const metadata: Metadata = {
-  title: "La Marzocco Water Audit | Certified LSI Analysis & Custom Recipe",
+  title: "Espresso Water Audit | Certified LSI Analysis for La Marzocco & Slayer",
   description:
-    "Get your Langelier Saturation Index (LSI) calculated and receive a custom water mineralization recipe for your La Marzocco machine. Prevent scale and corrosion. 24-hour turnaround.",
-  keywords: ["water chemistry", "espresso water", "LSI", "la marzocco", "water audit", "linea mini", "linea micra", "gs3", "slayer"],
-  authors: [{ name: "La Marzocco Water Audit" }],
+    "Laboratory-grade Langelier Saturation Index (LSI) calculation with custom mineralization recipe for La Marzocco (Mini, Micra, GS3) and Slayer machines. Prevent scale and corrosion. 24-hour turnaround.",
+  keywords: ["water chemistry", "espresso water", "LSI", "la marzocco", "slayer", "water audit", "linea mini", "linea micra", "gs3", "boiler corrosion", "scale prevention"],
+  authors: [{ name: "Espresso Schedules Water Lab" }],
   openGraph: {
-    title: "La Marzocco Water Audit | LSI Calculation & Custom Recipe",
+    title: "Espresso Water Audit | LSI Calculation & Custom Recipe",
     description:
-      "Certified water chemistry analysis with custom mineralization recipe for your machine. Protect your investment.",
-    url: "https://wateraudit.lamarzocco.com",
-    siteName: "La Marzocco Water Audit",
+      "Certified water chemistry analysis with custom mineralization recipe. Protect your La Marzocco or Slayer investment.",
+    url: "https://espressoschedules.com",
+    siteName: "Espresso Schedules Water Lab",
     images: [
       {
-        url: "https://wateraudit.lamarzocco.com/og-image.jpg",
+        url: "https://espressoschedules.com/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "La Marzocco Water Audit",
+        alt: "Espresso Water Audit",
       },
     ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "La Marzocco Water Audit | LSI Analysis & Custom Recipe",
+    title: "Espresso Water Audit | LSI Analysis & Custom Recipe",
     description: "Prevent scale and corrosion with certified water chemistry analysis.",
-    images: ["https://wateraudit.lamarzocco.com/og-image.jpg"],
+    images: ["https://espressoschedules.com/og-image.jpg"],
   },
 }
 
@@ -61,7 +61,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className="bg-dark-bg text-text-primary font-sans">
+      <body className="bg-white text-gray-900 font-sans antialiased">
         <main>{children}</main>
         <Footer />
         <Analytics />

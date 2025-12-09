@@ -17,22 +17,35 @@ function CloseSectionContent() {
   }
 
   return (
-    <section className="container-custom py-20 md:py-32 border-t border-dark-border text-center bg-white">
-      {/* Eyebrow - Machine Qualification */}
-      <p className="text-sm font-semibold text-gray-600 uppercase tracking-wider mb-4">
-        For La Marzocco (Mini, Micra, GS3) & Slayer Owners
-      </p>
-      
+    <section className="container-custom py-20 md:py-32 border-t border-gray-200 text-center bg-white">
       <h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
         Water Chemistry Is Measurable. Not Debatable.
       </h2>
       <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto leading-relaxed">
-        Your water is either chemically stable (LSI ≈ 0) or actively voiding your warranty and degrading your boiler. 
-        Quantify your risk. Implement the solution.
+        Your water is either chemically stable (LSI ≈ 0) or actively degrading your equipment.
       </p>
-      <p className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
-        Complete water audit with custom recipe: $97.
-      </p>
+      
+      <div className="bg-gray-50 border border-gray-200 rounded-lg p-8 max-w-3xl mx-auto mb-12">
+        <p className="text-xl md:text-2xl italic text-black mb-4 leading-relaxed">
+          "Water chemistry is not a guess. It is a calculation. LSI is the only metric that accounts for the interaction 
+          between pH, alkalinity, hardness, and temperature to predict boiler longevity."
+        </p>
+        <p className="text-gray-700">
+          — Standard Engineering Protocol
+        </p>
+      </div>
+
+      <div className="mb-8">
+        <p className="text-lg text-gray-700 mb-6 max-w-2xl mx-auto">
+          <strong className="text-black">The Package:</strong>
+        </p>
+        <div className="text-left max-w-md mx-auto mb-8 space-y-2">
+          <p className="text-gray-700">✓ LSI Certified Analysis</p>
+          <p className="text-gray-700">✓ The Recipe Card (Distilled Base)</p>
+          <p className="text-gray-700">✓ Resale Certificate</p>
+        </div>
+      </div>
+
       <Button
         onClick={handleCTAClick}
         href={`/order?machine=${machineType}`}
@@ -42,8 +55,8 @@ function CloseSectionContent() {
       >
         REQUEST WATER AUDIT - $97
       </Button>
-      <p className="text-sm text-gray-600 mt-6">
-        24-Hour Turnaround. Money-Back Guarantee.
+      <p className="text-sm text-gray-600 mt-4">
+        Secure Payment via Stripe. 100% Satisfaction Guarantee.
       </p>
     </section>
   )
@@ -51,7 +64,7 @@ function CloseSectionContent() {
 
 export default function CloseSection() {
   return (
-    <Suspense fallback={<div className="container-custom py-20 md:py-32 border-t border-dark-border text-center bg-white"></div>}>
+    <Suspense fallback={<div className="container-custom py-20 md:py-32 border-t border-gray-200 text-center bg-white"></div>}>
       <CloseSectionContent />
     </Suspense>
   )

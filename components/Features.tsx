@@ -1,7 +1,7 @@
 export default function Features() {
   const features = [
     {
-      title: "LSI Calculation (Langelier Saturation Index)",
+      title: "LSI Calculation",
       description: "Quantitative analysis of pH, alkalinity, calcium hardness, TDS, and temperature to predict scaling and corrosion potential with 0.01 precision.",
       icon: "📊",
     },
@@ -23,7 +23,9 @@ export default function Features() {
   ]
 
   return (
-    <section className="container-custom py-20 md:py-32 border-t border-dark-border bg-gray-50">
+    <section className="container-custom py-20 md:py-32 border-t border-gray-200 bg-gray-50">
+      {/* [IMAGE PLACEMENT 3: The "Evidence" Shot - Blurred LSI Report with recipe card] */}
+      
       <h2 className="text-4xl md:text-5xl font-bold text-black mb-4 text-center">
         Laboratory-Grade Water Analysis.
       </h2>
