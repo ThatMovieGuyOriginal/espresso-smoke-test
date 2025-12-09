@@ -2,9 +2,9 @@
 
 import { track } from '@vercel/analytics'
 import { useSearchParams } from 'next/navigation'
-import { useState } from 'react'
+import { Suspense, useState } from 'react'
 
-export default function OrderPage() {
+function OrderContent() {
   const searchParams = useSearchParams()
   const machineType = searchParams.get('machine') || 'linea_mini' // Default machine type
   const productType = searchParams.get('product') || 'lm_water_97' // Default product type
@@ -127,5 +127,26 @@ export default function OrderPage() {
         </form>
       </div>
     </section>
+  )
+}
+
+export default function OrderPage() {
+  return (
+    <Suspense fallback={
+      <section className="container-custom min-h-screen flex flex-col items-center justify-center py-16">
+        <div className="max-w-2xl w-full">
+          <div className="text-center mb-12">
+            <div className="animate-pulse mb-8">
+              <div className="w-16 h-16 bg-accent-orange rounded-full mx-auto mb-4"></div>
+            </div>
+            <h1 className="text-5xl md:text-6xl font-extrabold text-text-primary mb-6">
+              Loading...
+            </h1>
+          </div>
+        </div>
+      </section>
+    }>
+      <OrderContent />
+    </Suspense>
   )
 }
