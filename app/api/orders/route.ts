@@ -9,27 +9,21 @@ export async function POST(request: Request) {
     )
 
     const body = await request.json()
-    const { email, water_hardness_ppm, daily_shots, serial_number, stripe_session_id, status = 'pending_payment' } = body
+    const { 
+      email, 
+      water_hardness_ppm, 
+      daily_shots, 
+      serial_number, 
+      stripe_session_id, 
+      status = 'pending_payment',
+      product_type = 'lm_water_97',
+      machine_type
+    } = body
 
-    // Validation
-    if (!email || water_hardness_ppm === undefined || daily_shots === undefined || !serial_number) {
+    // Validation - email is required, everything else has defaults
+    if (!email) {
       return Response.json(
-        { error: 'Missing required fields' },
-        { status: 400 }
-      )
-    }
-
-    // Validate field ranges
-    if (typeof water_hardness_ppm !== 'number' || water_hardness_ppm < 1 || water_hardness_ppm > 999) {
-      return Response.json(
-        { error: 'Water hardness must be between 1-999 PPM' },
-        { status: 400 }
-      )
-    }
-
-    if (typeof daily_shots !== 'number' || daily_shots < 1 || daily_shots > 99) {
-      return Response.json(
-        { error: 'Daily shots must be between 1-99' },
+        { error: 'Email is required' },
         { status: 400 }
       )
     }
@@ -80,14 +74,17 @@ export async function POST(request: Request) {
 
     // Insert order into Supabase
     // CRITICAL: This runs BEFORE Stripe redirect (for pending_payment) or AFTER confirmation (for paid)
+    // All fields have defaults to enable frictionless payment (email-only form)
     const { data, error } = await supabase
       .from('orders')
       .insert([
         {
           email: email.toLowerCase(),
-          water_hardness_ppm: typeof water_hardness_ppm === 'string' ? parseInt(water_hardness_ppm) : water_hardness_ppm,
-          daily_shots: typeof daily_shots === 'string' ? parseInt(daily_shots) : daily_shots,
-          serial_number: serial_number.trim(),
+          product_type: product_type || 'lm_water_97',
+          machine_type: machine_type || null,
+          water_hardness_ppm: water_hardness_ppm || 150, // Default value
+          daily_shots: daily_shots || 4, // Default value
+          serial_number: serial_number || 'TBD', // Default value
           ...(stripe_session_id && { stripe_session_id }),
           status, // Use the provided status (pending_payment or paid)
           customer_ip: customerIp,

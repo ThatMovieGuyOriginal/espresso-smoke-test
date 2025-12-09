@@ -8,6 +8,7 @@ function SuccessContent() {
   const searchParams = useSearchParams()
   const [saving, setSaving] = useState(true)
   const [showDataForm, setShowDataForm] = useState(false)
+  const [waterSourceChoice, setWaterSourceChoice] = useState<string>('') // Track water source selection
   const [formData, setFormData] = useState({
     waterHardness: '',
     dailyShots: '',
@@ -79,6 +80,7 @@ function SuccessContent() {
           water_hardness_ppm: parseInt(formData.waterHardness),
           daily_shots: parseInt(formData.dailyShots),
           serial_number: formData.serialNumber,
+          water_source: waterSourceChoice,
         }),
       })
 

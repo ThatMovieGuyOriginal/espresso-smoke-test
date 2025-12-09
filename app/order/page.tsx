@@ -1,9 +1,14 @@
 'use client'
 
 import { track } from '@vercel/analytics'
+import { useSearchParams } from 'next/navigation'
 import { useState } from 'react'
 
 export default function OrderPage() {
+  const searchParams = useSearchParams()
+  const machineType = searchParams.get('machine') || 'linea_mini' // Default machine type
+  const productType = searchParams.get('product') || 'lm_water_97' // Default product type
+  
   const [email, setEmail] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
@@ -27,6 +32,8 @@ export default function OrderPage() {
     setLoading(true)
     track('order_form_submitted_email_only', {
       email: email,
+      machine_type: machineType,
+      product_type: productType,
     })
 
     // CRITICAL: Always redirect to Stripe, even if database save fails
@@ -40,6 +47,8 @@ export default function OrderPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           email: email,
+          product_type: productType,
+          machine_type: machineType,
           water_hardness_ppm: 150, // Dummy default
           daily_shots: 4, // Dummy default
           serial_number: 'TBD', // Placeholder - to be collected post-purchase
