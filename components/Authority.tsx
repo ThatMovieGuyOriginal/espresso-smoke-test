@@ -11,9 +11,8 @@ export default function Authority() {
                 Certified Water Chemistry Analysis
               </h3>
               <p className="text-lg text-gray-700 leading-relaxed">
-                We calculate your <strong>Langelier Saturation Index (LSI)</strong> using the exact same methodology 
-                that La Marzocco uses in their Water Chemistry Guidelines. Our analysis is cross-referenced against 
-                factory specifications to ensure your custom recipe protects your machine.
+                We calculate your <strong>Langelier Saturation Index (LSI)</strong> using the exact same temperature-dependent methodology 
+                found in the official La Marzocco & Slayer Water Chemistry Guidelines.
               </p>
             </div>
           </div>
@@ -21,20 +20,20 @@ export default function Authority() {
           {/* Source Documents */}
           <div className="border-t border-gray-200 pt-6 mt-6">
             <p className="text-sm text-gray-700 mb-4 font-semibold uppercase tracking-wide">
-              Verified Against Official La Marzocco Documentation:
+              Verified Against Official Manufacturer Standards:
             </p>
             <ul className="space-y-2 text-gray-700">
               <li className="flex items-start gap-2">
                 <span className="text-black font-bold">✓</span>
-                <span>La Marzocco Water Chemistry Guidelines — Official LSI calculation methodology</span>
+                <span>La Marzocco Water Chemistry Guidelines — Official LSI calculation methodology (at 93°C operating temp).</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-black font-bold">✓</span>
-                <span>Machine Installation Manuals (Linea Mini, Micra, GS3, Slayer) — Factory specifications</span>
+                <span>Machine Installation Manuals — Factory specifications for Linea Mini, Micra, GS3, and Slayer Single Group.</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-black font-bold">✓</span>
-                <span>Mineral Water Compatibility Standards — Warranty-protected water parameters</span>
+                <span>Mineral Water Compatibility Standards — Warranty-protected chloride and total hardness limits.</span>
               </li>
             </ul>
           </div>
@@ -43,11 +42,11 @@ export default function Authority() {
         {/* Authority Quote */}
         <div className="bg-gray-50 border border-gray-200 rounded-lg p-8 md:p-10">
           <p className="text-xl md:text-2xl italic text-black mb-4 leading-relaxed">
-            "Water chemistry is not a guess. It's not a trial. It's a calculation. 
-            Know your LSI. Protect your machine. Extend your warranty."
+            "Water chemistry is not a guess. It is a calculation. LSI is the only metric that accounts for the interaction 
+            between pH, alkalinity, hardness, and temperature to predict boiler longevity."
           </p>
           <p className="text-gray-700">
-            — La Marzocco Technical Standards
+            — Standard Engineering Protocol
           </p>
         </div>
       </div>

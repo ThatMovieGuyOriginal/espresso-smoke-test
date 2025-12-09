@@ -18,11 +18,16 @@ function CloseSectionContent() {
 
   return (
     <section className="container-custom py-20 md:py-32 border-t border-dark-border text-center bg-white">
+      {/* Eyebrow - Machine Qualification */}
+      <p className="text-sm font-semibold text-gray-600 uppercase tracking-wider mb-4">
+        For La Marzocco (Mini, Micra, GS3) & Slayer Owners
+      </p>
+      
       <h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
         Water Chemistry Is Measurable. Not Debatable.
       </h2>
       <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto leading-relaxed">
-        Your water is either chemically stable (LSI ≈ 0) or actively degrading your equipment. 
+        Your water is either chemically stable (LSI ≈ 0) or actively voiding your warranty and degrading your boiler. 
         Quantify your risk. Implement the solution.
       </p>
       <p className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">

@@ -2,22 +2,22 @@ export default function Features() {
   const features = [
     {
       title: "LSI Calculation (Langelier Saturation Index)",
-      description: "Quantitative analysis of pH, alkalinity, calcium hardness, TDS, and temperature to predict scaling and corrosion potential.",
+      description: "Quantitative analysis of pH, alkalinity, calcium hardness, TDS, and temperature to predict scaling and corrosion potential with 0.01 precision.",
       icon: "📊",
     },
     {
       title: "Custom Mineralization Recipe",
-      description: "Precise dosing protocol (grams per gallon) for potassium bicarbonate and magnesium sulfate, calibrated to your source water.",
+      description: "Precise dosing protocol (grams per gallon) for Potassium Bicarbonate and Magnesium Sulfate, calibrated to your source water and boiler metallurgy.",
       icon: "⚗️",
     },
     {
-      title: "La Marzocco Factory-Aligned",
-      description: "Cross-referenced against official La Marzocco Water Chemistry Guidelines to ensure warranty compliance.",
+      title: "Manufacturer Compliant",
+      description: "Cross-referenced against official La Marzocco & Slayer Water Chemistry Guidelines to ensure Warranty Compliance.",
       icon: "✅",
     },
     {
       title: "Resale Documentation",
-      description: "Timestamped water chemistry report demonstrating proper maintenance protocol. Enhances resale value verification.",
+      description: "Timestamped water chemistry report demonstrating proper maintenance protocol. Establishes provenance for future resale.",
       icon: "📜",
     },
   ]

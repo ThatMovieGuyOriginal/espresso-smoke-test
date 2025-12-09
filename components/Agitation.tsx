@@ -17,8 +17,8 @@ export default function Agitation() {
               Scale Formation (LSI {'>'} 0)
             </h3>
             <p className="text-gray-700">
-              Water with total dissolved solids above 200 ppm deposits calcium carbonate on heating elements, 
-              group screens, and thermosyphon tubes. Descaling protocols provide temporary relief but cannot 
+              Water with total dissolved solids above 150 ppm deposits calcium carbonate on heating elements, 
+              GS3 saturated groups, and Slayer needle valves. Descaling protocols provide temporary relief but cannot 
               prevent cumulative mineral deposition. Eventual boiler replacement is inevitable.
             </p>
           </div>
@@ -28,8 +28,8 @@ export default function Agitation() {
               Galvanic Corrosion (LSI {'<'} 0)
             </h3>
             <p className="text-gray-700">
-              Demineralized water (reverse osmosis, distilled) with insufficient buffering capacity leaches 
-              copper and steel from boiler internals. This electrochemical process is irreversible and 
+              Demineralized water (RO, Distilled) with insufficient buffering capacity leaches 
+              copper and stainless steel from La Marzocco boiler internals. This electrochemical process is irreversible and 
               asymptomatic until catastrophic failure occurs.
             </p>
           </div>
@@ -39,9 +39,9 @@ export default function Agitation() {
               Chemical Equilibrium (LSI ≈ 0)
             </h3>
             <p className="text-gray-700">
-              A Langelier Saturation Index between -0.5 and +0.5 indicates chemically stable water. 
-              Mineral precipitation is minimized. Corrosion rate remains within acceptable tolerance. 
-              Component lifespan is maximized per manufacturer specifications.
+              A Langelier Saturation Index between -0.3 and +0.3 indicates chemically stable water. 
+              Mineral precipitation is minimized. Corrosion rate remains within manufacturer tolerance. 
+              Warranty status is preserved.
             </p>
           </div>
         </div>
@@ -51,12 +51,12 @@ export default function Agitation() {
             The Challenge:
           </p>
           <p className="text-lg">
-            Without laboratory analysis, water chemistry remains unknown. Commercial "espresso water" products 
-            provide generalized formulations that may not align with your source water parameters or machine requirements.
+            Without laboratory analysis, your water chemistry remains a variable. Commercial "espresso water" packets 
+            provide generalized formulations that do not account for your specific Linea Mini or GS3 operating temperature.
           </p>
           <p className="text-lg mt-4">
-            Our audit calculates your precise LSI value and prescribes a custom mineral recipe calibrated for your specific 
-            machine model and source water composition.
+            Our audit calculates your precise LSI value and prescribes a custom mineral recipe calibrated for your 
+            La Marzocco or Slayer specifications.
           </p>
         </div>
 

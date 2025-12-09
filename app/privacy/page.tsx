@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'Privacy Policy - La Marzocco Water Audit',
-  description: 'Privacy policy for La Marzocco Water Audit. We collect minimal data to deliver your certified water analysis.',
+  title: 'Privacy Policy - Precision Water Audit',
+  description: 'Privacy policy for Precision Water Audit. We collect minimal data to deliver your certified water analysis.',
 }
 
 import Link from 'next/link'
@@ -18,11 +18,9 @@ export default function PrivacyPage() {
           <div>
             <h2 className="text-2xl font-bold text-black mb-3">What We Collect</h2>
             <ul className="list-disc list-inside space-y-2 ml-2">
-              <li>Email address (for order confirmation and results delivery)</li>
+              <li>Email address (for results delivery)</li>
               <li>Water hardness/TDS data (for LSI calculation)</li>
-              <li>Daily shot count (for usage recommendations)</li>
-              <li>Machine type and serial number (for factory-aligned recipes)</li>
-              <li>Water source information (tap, bottled, or mixed)</li>
+              <li>Machine type and serial number (for resale verification)</li>
             </ul>
           </div>
 
@@ -34,34 +32,32 @@ export default function PrivacyPage() {
             <ul className="list-disc list-inside space-y-2 ml-2">
               <li>Calculate your Langelier Saturation Index (LSI)</li>
               <li>Generate your custom water recipe</li>
-              <li>Deliver your water audit report and resale certificate</li>
-              <li>Provide support if you have questions about your results</li>
+              <li>Issue your Dated Resale Certificate</li>
             </ul>
           </div>
 
           <div>
-            <h2 className="text-2xl font-bold text-black mb-3">Data Security & Retention</h2>
+            <h2 className="text-2xl font-bold text-black mb-3">Data Security</h2>
             <p className="mb-3">
-              Your data is encrypted and stored in Supabase with Role-Based Access Control. We do not share, sell, or distribute your information to third parties.
-            </p>
-            <p>
-              We retain your order data for 7 years for warranty and resale certificate purposes. You can request deletion at any time.
+              Your data is secured with AES-256 encryption. Payment processing is handled exclusively by Stripe; we never store your credit card details. 
+              We do not share, sell, or distribute your information.
             </p>
           </div>
 
           <div>
-            <h2 className="text-2xl font-bold text-black mb-3">Your Rights</h2>
+            <h2 className="text-2xl font-bold text-black mb-3">Data Retention</h2>
             <p>
-              You have the right to request access, correction, or deletion of your data at any time. Contact us at support@wateraudit.lamarzocco.com and we'll respond within 7 business days.
+              We retain your audit data for 7 years to ensure your Resale Certificate remains verifiable for future buyers. 
+              You can request deletion at any time.
             </p>
           </div>
 
           <div>
             <h2 className="text-2xl font-bold text-black mb-3">Contact</h2>
             <p>
-              For privacy questions or data requests, email:{' '}
-              <a href="mailto:support@wateraudit.lamarzocco.com" className="font-bold text-black hover:underline">
-                support@wateraudit.lamarzocco.com
+              For privacy questions, email:{' '}
+              <a href="mailto:support@espressoschedules.com" className="font-bold text-black hover:underline">
+                support@espressoschedules.com
               </a>
             </p>
           </div>

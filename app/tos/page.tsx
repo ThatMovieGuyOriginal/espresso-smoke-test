@@ -10,70 +10,63 @@ export default function TermsOfService() {
           <div>
             <h2 className="text-2xl font-bold text-black mb-4">1. Service Description</h2>
             <p>
-              La Marzocco Water Audit provides certified water chemistry analysis (LSI calculation) and custom mineralization recipes for La Marzocco espresso machines. 
-              By purchasing, you agree to these Terms of Service.
+              Espresso Schedules Water Lab (The Service) provides certified water chemistry analysis (LSI calculation) and custom mineralization recipes 
+              for high-end espresso machines (La Marzocco, Slayer, etc.). By purchasing, you agree to these Terms of Service.
+            </p>
+            <p className="mt-3">
+              <strong>We are an independent consultancy and are not affiliated with La Marzocco, Slayer, or their parent companies.</strong>
             </p>
           </div>
 
           <div>
-            <h2 className="text-2xl font-bold text-black mb-4">2. Disclaimer of Warranties</h2>
+            <h2 className="text-2xl font-bold text-black mb-4">2. Accuracy & Methodology</h2>
             <p className="mb-4">
-              <strong>Our water analysis and recipes are scientific recommendations based on your provided data.</strong> We do not guarantee:
+              Our analysis is based strictly on the Official Manufacturer Water Specifications (e.g., La Marzocco Water Calculator V3, Slayer Water Guide). 
+              We guarantee that our prescribed recipes fall within the published "Safe Zone" for LSI (-0.3 to +0.3) and Total Dissolved Solids.
             </p>
-            <ul className="list-disc list-inside space-y-2 ml-4">
-              <li>Elimination of all scale or corrosion (LSI 0 is a target, not a guarantee)</li>
-              <li>Improvement in espresso extraction or flavor</li>
-              <li>Extended machine lifespan or warranty coverage</li>
-            </ul>
-            <p className="mt-4">
-              Machine maintenance is performed at your own risk. We are not responsible for machine damage, failure, or operational issues.
+            <p>
+              <strong>Limitation:</strong> We cannot account for user error in mixing, uncalibrated scales, or changes in your source water supply.
             </p>
           </div>
 
           <div>
-            <h2 className="text-2xl font-bold text-black mb-4">3. Data Accuracy</h2>
+            <h2 className="text-2xl font-bold text-black mb-4">3. Limitation of Liability</h2>
             <p>
-              Our analysis is accurate to the data you provide. If your water chemistry changes, your recipe may no longer be valid. 
-              We recommend retesting annually or if you change water sources.
+              While our recipes are calculated to meet manufacturer specifications for warranty compliance, Espresso Schedules Water Lab is not responsible 
+              for hardware failure, existing scale buildup, or warranty claims denied by the manufacturer for reasons unrelated to water chemistry 
+              (e.g., misuse, electrical surges).
             </p>
           </div>
 
           <div>
-            <h2 className="text-2xl font-bold text-black mb-4">4. Limitation of Liability</h2>
+            <h2 className="text-2xl font-bold text-black mb-4">4. Data Accuracy</h2>
             <p>
-              La Marzocco Water Audit shall not be liable for any damages (direct, indirect, or consequential) arising from use of our analysis, recipes, or recommendations.
+              Our analysis is only as accurate as the data you provide. If your local water source changes (e.g., seasonal municipal flush), 
+              your recipe requires recalibration. We recommend re-testing annually.
             </p>
           </div>
 
           <div>
             <h2 className="text-2xl font-bold text-black mb-4">5. Refund Policy</h2>
             <p>
-              We offer a 30-day money-back guarantee if your water audit doesn't meet your expectations. 
-              Contact us at support@wateraudit.lamarzocco.com with your order number.
+              We offer a 30-day money-back guarantee. If our analysis cannot provide a safe, specification-compliant recipe for your water source 
+              (e.g., your tap water is too toxic to fix), we will issue a full refund.
             </p>
           </div>
 
           <div>
             <h2 className="text-2xl font-bold text-black mb-4">6. Intellectual Property</h2>
             <p>
-              Your custom water recipe and LSI report are for personal use only. Redistribution, resale, or commercial use is prohibited.
+              Your custom water recipe and LSI report are for personal use only. Redistribution or commercial resale of our proprietary calculation method is prohibited.
             </p>
           </div>
 
           <div>
-            <h2 className="text-2xl font-bold text-black mb-4">7. Warranty Disclaimer</h2>
-            <p>
-              We provide no warranty that using our recipes will preserve your machine's warranty with La Marzocco. 
-              Consult your machine's manual and La Marzocco's water chemistry guidelines before implementing any recipe.
-            </p>
-          </div>
-
-          <div>
-            <h2 className="text-2xl font-bold text-black mb-4">8. Contact</h2>
+            <h2 className="text-2xl font-bold text-black mb-4">7. Contact</h2>
             <p>
               For questions about these terms, email:{' '}
-              <a href="mailto:support@wateraudit.lamarzocco.com" className="font-bold text-black hover:underline">
-                support@wateraudit.lamarzocco.com
+              <a href="mailto:support@espressoschedules.com" className="font-bold text-black hover:underline">
+                support@espressoschedules.com
               </a>
             </p>
           </div>

@@ -13,26 +13,26 @@ function HeroContent() {
   const getMachineConfig = () => {
     const configs: Record<string, any> = {
       linea_mini: {
-        name: 'Linea Mini',
-        warranty: 'compromising your warranty coverage',
+        name: 'La Marzocco (Mini, Micra, GS3) & Slayer',
+        warranty: 'Voiding Your Warranty',
         problem: 'Accelerated heating element degradation',
         fear: 'Boiler replacement: $2,000+ in parts and labor.',
       },
       linea_micra: {
-        name: 'Linea Micra',
-        warranty: 'compromising your warranty coverage',
+        name: 'La Marzocco (Mini, Micra, GS3) & Slayer',
+        warranty: 'Voiding Your Warranty',
         problem: 'Scale accumulation in dual-boiler system',
         fear: 'Dual-boiler repair costs exceed $2,500.',
       },
       gs3: {
-        name: 'GS3',
-        warranty: 'compromising your warranty coverage',
+        name: 'La Marzocco (Mini, Micra, GS3) & Slayer',
+        warranty: 'Voiding Your Warranty',
         problem: 'Saturated group calcification',
         fear: 'Group head rebuild: $3,000+ at authorized service centers.',
       },
       slayer: {
-        name: 'Slayer',
-        warranty: 'compromising your warranty coverage',
+        name: 'La Marzocco (Mini, Micra, GS3) & Slayer',
+        warranty: 'Voiding Your Warranty',
         problem: 'Flow control valve degradation',
         fear: 'Precision components are irreparably damaged by improper water chemistry.',
       },
@@ -65,7 +65,7 @@ function HeroContent() {
 
         {/* The Pain Points - Why They Need This */}
         <div className="bg-gray-50 border border-gray-200 rounded-lg p-8 mb-12">
-          <h3 className="text-lg font-bold text-black mb-6">The Three Traps Every {config.name} Owner Falls Into:</h3>
+          <h3 className="text-lg font-bold text-black mb-6">The Three Traps Every Owner Falls Into:</h3>
           <div className="space-y-4 text-left">
             <div className="flex gap-4">
               <div className="flex-shrink-0">
@@ -73,7 +73,7 @@ function HeroContent() {
               </div>
               <div>
                 <p className="font-semibold text-black">The Scale Trap</p>
-                <p className="text-gray-700">Hard tap water (high TDS) calcifies heating elements and group heads. {config.problem}.</p>
+                <p className="text-gray-700">Hard tap water (high TDS) calcifies heating elements and clogs precision flow restrictors (gicleurs).</p>
               </div>
             </div>
             <div className="flex gap-4">
@@ -82,7 +82,7 @@ function HeroContent() {
               </div>
               <div>
                 <p className="font-semibold text-black">The Corrosion Trap</p>
-                <p className="text-gray-700">Pure water (0 TDS) and RO water leach copper and stainless steel. Your boiler slowly dissolves.</p>
+                <p className="text-gray-700">Pure water (0 TDS) and RO water leach copper and stainless steel. Your boiler slowly dissolves from the inside out.</p>
               </div>
             </div>
             <div className="flex gap-4">
@@ -103,15 +103,15 @@ function HeroContent() {
           <ul className="space-y-3 text-left max-w-2xl mx-auto">
             <li className="flex gap-3">
               <span className="text-green-600 font-bold">✓</span>
-              <span className="text-gray-700"><strong>LSI Certified Analysis:</strong> We run your water parameters through the La Marzocco Water Calculator.</span>
+              <span className="text-gray-700"><strong>LSI Certified Analysis:</strong> We run your water parameters through the official Manufacturer Water Calculator.</span>
             </li>
             <li className="flex gap-3">
               <span className="text-green-600 font-bold">✓</span>
-              <span className="text-gray-700"><strong>The Recipe Card:</strong> Exact grams of Potassium Bicarbonate + Epsom Salt per gallon for your specific water.</span>
+              <span className="text-gray-700"><strong>The Recipe Card:</strong> Exact grams of minerals per gallon of Distilled Water for your specific machine.</span>
             </li>
             <li className="flex gap-3">
               <span className="text-green-600 font-bold">✓</span>
-              <span className="text-gray-700"><strong>Resale Certificate:</strong> A dated digital log proving your {config.name} ran on spec-compliant water.</span>
+              <span className="text-gray-700"><strong>Resale Certificate:</strong> A dated digital log proving your machine ran on spec-compliant water.</span>
             </li>
           </ul>
         </div>
