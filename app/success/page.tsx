@@ -120,7 +120,6 @@ function SuccessContent() {
     <section className="container-custom min-h-screen flex flex-col items-center justify-center py-16 bg-white">
       <div className="max-w-2xl w-full">
         <div className="text-center mb-12">
-          <div className="text-6xl mb-8">✅</div>
           <h1 className="text-4xl md:text-5xl font-extrabold text-[#111111] mb-6">
             Payment Successful
           </h1>
@@ -253,7 +252,6 @@ function SuccessContent() {
 
         {dataSubmitSuccess && (
           <div className="bg-[#F9FAFB] border border-[#E5E7EB] rounded-[4px] p-8 mb-8 text-center">
-            <div className="text-4xl mb-4">✨</div>
             <h2 className="text-2xl font-bold text-[#0F766E] mb-4">Profile Complete</h2>
             <p className="text-[#4B5563] mb-6">
               Thanks for providing your machine details. Your Certified LSI Report and recipe will reflect your exact specifications.

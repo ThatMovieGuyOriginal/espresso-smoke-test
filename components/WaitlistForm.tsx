@@ -64,21 +64,21 @@ export function WaitlistForm() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="your@email.com"
-          className="bg-dark-surface border border-dark-border text-text-primary placeholder-text-secondary rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent-orange"
+          className="bg-white border border-[#E5E7EB] text-[#111111] placeholder-[#9CA3AF] rounded-[4px] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#111111]"
           disabled={loading}
           required
         />
-        <label className="flex items-center gap-3 text-sm text-text-secondary">
+        <label className="flex items-center gap-3 text-sm text-[#4B5563]">
           <input
             type="checkbox"
             checked={consent}
             onChange={(e) => setConsent(e.target.checked)}
             disabled={loading}
-            className="w-4 h-4"
+            className="w-4 h-4 rounded border-[#E5E7EB]"
           />
           <span>
             I agree to receive emails about the product and updates. See our{' '}
-            <a href="/privacy" className="underline">
+            <a href="/privacy" className="underline hover:text-[#111111]">
               privacy policy
             </a>
             .
@@ -94,7 +94,7 @@ export function WaitlistForm() {
       </div>
 
       {status === "success" && (
-        <p className="text-accent-green text-center mt-4 font-semibold">
+        <p className="text-[#0F766E] text-center mt-4 font-semibold">
           {message}
         </p>
       )}

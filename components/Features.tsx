@@ -3,22 +3,22 @@ export default function Features() {
     {
       title: "LSI Calculation",
       description: "Quantitative analysis of pH, alkalinity, calcium hardness, TDS, and temperature to predict scaling and corrosion potential with 0.01 precision.",
-      icon: "📊",
+      icon: "■",
     },
     {
       title: "Custom Mineralization Recipe",
       description: "Precise dosing protocol (grams per gallon) for Potassium Bicarbonate and Magnesium Sulfate, calibrated to your source water and boiler metallurgy.",
-      icon: "⚗️",
+      icon: "◆",
     },
     {
       title: "Manufacturer Compliant",
       description: "Cross-referenced against official La Marzocco & Slayer Water Chemistry Guidelines to ensure Warranty Compliance.",
-      icon: "✅",
+      icon: "✓",
     },
     {
       title: "Resale Documentation",
       description: "Timestamped water chemistry report demonstrating proper maintenance protocol. Establishes provenance for future resale.",
-      icon: "📜",
+      icon: "■",
     },
   ]
 

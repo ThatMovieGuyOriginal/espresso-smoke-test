@@ -121,7 +121,7 @@ function OrderContent() {
           </button>
 
           <p className="text-xs text-[#4B5563] text-center mt-4">
-            🔒 Secure payment via Stripe. You'll enter payment details on the next page.
+            Secure payment via Stripe. You'll enter payment details on the next page.
           </p>
         </form>
       </div>
