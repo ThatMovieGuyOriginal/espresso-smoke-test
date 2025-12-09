@@ -61,7 +61,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className="bg-white text-gray-900 font-sans antialiased">
+      <body className="bg-white text-[#111111] font-sans antialiased">
         <main>{children}</main>
         <Footer />
         <Analytics />

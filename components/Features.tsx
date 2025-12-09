@@ -23,13 +23,13 @@ export default function Features() {
   ]
 
   return (
-    <section className="container-custom py-20 md:py-32 border-t border-gray-200 bg-gray-50">
+    <section className="container-custom py-20 md:py-32 border-t border-[#E5E7EB] bg-[#F9FAFB]">
       {/* [IMAGE PLACEMENT 3: The "Evidence" Shot - Blurred LSI Report with recipe card] */}
       
-      <h2 className="text-4xl md:text-5xl font-bold text-black mb-4 text-center">
+      <h2 className="text-4xl md:text-5xl font-bold text-[#111111] mb-4 text-center">
         Laboratory-Grade Water Analysis.
       </h2>
-      <p className="text-lg text-gray-700 text-center mb-12 max-w-2xl mx-auto">
+      <p className="text-lg text-[#4B5563] text-center mb-12 max-w-2xl mx-auto">
         Quantitative LSI calculation with machine-specific mineralization protocol. No generic recommendations.
       </p>
 
@@ -37,12 +37,12 @@ export default function Features() {
         {features.map((feature, idx) => (
           <div
             key={idx}
-            className="bg-white border border-gray-200 rounded-lg p-6 hover:border-black transition-colors duration-200"
+            className="bg-white border border-[#E5E7EB] rounded-[4px] p-6 hover:border-[#111111] transition-colors duration-200"
           >
-            <h3 className="text-xl font-bold text-black mb-3">
+            <h3 className="text-xl font-bold text-[#111111] mb-3">
               {feature.icon} {feature.title}
             </h3>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-[#4B5563] leading-relaxed">
               {feature.description}
             </p>
           </div>

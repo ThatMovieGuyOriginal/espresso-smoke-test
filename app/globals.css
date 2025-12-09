@@ -20,20 +20,33 @@
   }
 
   .btn-cta {
-    @apply bg-accent-orange text-black font-bold py-4 px-8 rounded-md uppercase tracking-wider transition-transform duration-200 hover:scale-105 active:scale-95;
+    @apply bg-[#000000] text-white font-bold py-4 px-8 rounded-[4px] uppercase tracking-wider transition-colors duration-150 hover:bg-[#333333];
   }
 
   .btn-waitlist {
-    @apply bg-accent-green text-white font-bold py-3 px-6 rounded-md transition-opacity duration-200 hover:opacity-90 active:opacity-80;
+    @apply bg-[#000000] text-white font-bold py-3 px-6 rounded-[4px] transition-colors duration-150 hover:bg-[#333333];
   }
 }
 
 /* Base styles */
 body {
-  @apply bg-dark-bg text-text-primary;
+  background: #FFFFFF;
+  color: #111111;
 }
 
 input,
 textarea {
-  @apply bg-dark-surface border border-dark-border text-text-primary placeholder-text-secondary rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-accent-orange;
+  background: #FFFFFF;
+  color: #111111;
+  border: 1px solid #E5E7EB;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  outline: none;
+  transition: box-shadow 150ms ease, border-color 150ms ease;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #111111;
+  box-shadow: 0 0 0 1px #111111;
 }

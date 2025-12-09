@@ -75,23 +75,22 @@ function OrderContent() {
   }
 
   return (
-    <section className="container-custom min-h-screen flex flex-col items-center justify-center py-16">
+    <section className="container-custom min-h-screen flex flex-col items-center justify-center py-16 bg-white">
       <div className="max-w-2xl w-full">
         <div className="text-center mb-12">
-          <h1 className="text-5xl md:text-6xl font-extrabold text-text-primary mb-6">
-            Get Your Custom Cleaning Schedule
+          <h1 className="text-5xl md:text-6xl font-extrabold text-[#111111] mb-6">
+            Get Your Certified Water Audit
           </h1>
-          <p className="text-lg text-text-secondary leading-relaxed">
-            We'll generate a precision maintenance calendar for your La Marzocco Linea Mini. 
-            Your schedule will be customized based on your machine and usage.
+          <p className="text-lg text-[#4B5563] leading-relaxed">
+            Certified LSI calculation and custom mineralization recipe for La Marzocco (Mini, Micra, GS3) and Slayer.
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-dark-surface border border-dark-border rounded-lg p-8 space-y-6">
+        <form onSubmit={handleSubmit} className="bg-[#F9FAFB] border border-[#E5E7EB] rounded-[4px] p-8 space-y-6">
           {/* Email Only */}
           <div>
-            <label htmlFor="email" className="block text-sm font-bold text-text-primary mb-2">
-              Email Address <span className="text-accent-orange">*</span>
+            <label htmlFor="email" className="block text-sm font-bold text-[#111111] mb-2">
+              Email Address <span className="text-[#B91C1C]">*</span>
             </label>
             <input
               type="email"
@@ -102,13 +101,13 @@ function OrderContent() {
                 if (error) setError('')
               }}
               placeholder="your@email.com"
-              className="w-full bg-dark-bg border border-dark-border text-text-primary placeholder-text-secondary rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent-orange text-lg"
+              className="w-full bg-white border border-[#E5E7EB] text-[#111111] placeholder-[#9CA3AF] rounded-[4px] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#111111] text-lg"
               disabled={loading}
               autoFocus
               required
             />
             {error && (
-              <p className="text-red-500 text-sm mt-1">{error}</p>
+              <p className="text-[#B91C1C] text-sm mt-1">{error}</p>
             )}
           </div>
 
@@ -116,12 +115,12 @@ function OrderContent() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-accent-orange text-black font-bold py-4 px-8 rounded-md uppercase tracking-wider transition-all duration-200 hover:bg-accent-orange-hover hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed text-lg"
+            className="w-full bg-[#000000] text-white font-bold py-4 px-8 rounded-[4px] uppercase tracking-wider transition-colors duration-150 hover:bg-[#333333] disabled:opacity-50 disabled:cursor-not-allowed text-lg"
           >
             {loading ? 'REDIRECTING...' : 'PROCEED TO PAYMENT - $97'}
           </button>
 
-          <p className="text-xs text-text-secondary text-center mt-4">
+          <p className="text-xs text-[#4B5563] text-center mt-4">
             🔒 Secure payment via Stripe. You'll enter payment details on the next page.
           </p>
         </form>
@@ -133,13 +132,13 @@ function OrderContent() {
 export default function OrderPage() {
   return (
     <Suspense fallback={
-      <section className="container-custom min-h-screen flex flex-col items-center justify-center py-16">
+      <section className="container-custom min-h-screen flex flex-col items-center justify-center py-16 bg-white">
         <div className="max-w-2xl w-full">
           <div className="text-center mb-12">
             <div className="animate-pulse mb-8">
-              <div className="w-16 h-16 bg-accent-orange rounded-full mx-auto mb-4"></div>
+              <div className="w-16 h-16 bg-[#E5E7EB] rounded-full mx-auto mb-4"></div>
             </div>
-            <h1 className="text-5xl md:text-6xl font-extrabold text-text-primary mb-6">
+            <h1 className="text-5xl md:text-6xl font-extrabold text-[#111111] mb-6">
               Loading...
             </h1>
           </div>

@@ -100,15 +100,15 @@ function SuccessContent() {
 
   if (saving) {
     return (
-      <section className="container-custom min-h-screen flex flex-col items-center justify-center py-16">
+      <section className="container-custom min-h-screen flex flex-col items-center justify-center py-16 bg-white">
         <div className="max-w-2xl text-center">
           <div className="animate-pulse mb-8">
-            <div className="w-16 h-16 bg-accent-orange rounded-full mx-auto mb-4"></div>
+            <div className="w-16 h-16 bg-[#E5E7EB] rounded-full mx-auto mb-4"></div>
           </div>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-text-primary mb-6">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-[#111111] mb-6">
             Processing Your Order...
           </h1>
-          <p className="text-lg text-text-secondary">
+          <p className="text-lg text-[#4B5563]">
             Please wait while we confirm your payment.
           </p>
         </div>
@@ -117,37 +117,37 @@ function SuccessContent() {
   }
 
   return (
-    <section className="container-custom min-h-screen flex flex-col items-center justify-center py-16">
+    <section className="container-custom min-h-screen flex flex-col items-center justify-center py-16 bg-white">
       <div className="max-w-2xl w-full">
         <div className="text-center mb-12">
           <div className="text-6xl mb-8">✅</div>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-accent-green mb-6">
-            Payment Successful!
+          <h1 className="text-4xl md:text-5xl font-extrabold text-[#111111] mb-6">
+            Payment Successful
           </h1>
-          <p className="text-lg text-text-secondary mb-8 leading-relaxed">
-            Your payment has been received. We're preparing your custom Preventative Maintenance and Cleaning Schedule.
+          <p className="text-lg text-[#4B5563] mb-8 leading-relaxed">
+            Your payment has been received. We are preparing your Certified LSI Report and custom mineralization recipe.
           </p>
         </div>
 
         {!showDataForm && !dataSubmitSuccess && (
-          <div className="bg-dark-surface border border-dark-border rounded-lg p-8 mb-8">
-            <h2 className="text-2xl font-bold text-text-primary mb-6">Complete Your Profile (Optional)</h2>
-            <p className="text-text-secondary mb-6">
-              We have placeholder data for your machine. To get the most accurate maintenance schedule, please provide your actual machine details below.
+          <div className="bg-[#F9FAFB] border border-[#E5E7EB] rounded-[4px] p-8 mb-8">
+            <h2 className="text-2xl font-bold text-[#111111] mb-6">Complete Your Profile (Optional)</h2>
+            <p className="text-[#4B5563] mb-6">
+              Provide your actual machine details to tighten the prescription. Otherwise we'll proceed with placeholders and follow up by email.
             </p>
-            <p className="text-text-secondary text-sm mb-6 italic">
-              Don't have this info handy? No problem — we'll email you the schedule with default parameters and you can update it anytime.
+            <p className="text-[#4B5563] text-sm mb-6 italic">
+              Don't have this info handy? We'll send the report with defaults. You can update anytime.
             </p>
             <div className="flex gap-4">
               <button
                 onClick={() => setShowDataForm(true)}
-                className="flex-1 bg-accent-orange text-black font-bold py-3 px-6 rounded-md uppercase tracking-wider hover:bg-accent-orange-hover transition-colors"
+                className="flex-1 bg-[#000000] text-white font-bold py-3 px-6 rounded-[4px] uppercase tracking-wider hover:bg-[#333333] transition-colors"
               >
                 Complete Profile Now
               </button>
               <button
                 onClick={() => setShowDataForm(false)}
-                className="flex-1 bg-dark-bg text-text-primary border border-dark-border font-bold py-3 px-6 rounded-md uppercase tracking-wider hover:border-accent-orange transition-colors"
+                className="flex-1 bg-white text-[#111111] border border-[#E5E7EB] font-bold py-3 px-6 rounded-[4px] uppercase tracking-wider hover:border-[#111111] transition-colors"
               >
                 Do It Later
               </button>
@@ -156,13 +156,13 @@ function SuccessContent() {
         )}
 
         {showDataForm && !dataSubmitSuccess && (
-          <form onSubmit={handleSubmitMachineData} className="bg-dark-surface border border-dark-border rounded-lg p-8 mb-8 space-y-6">
-            <h2 className="text-2xl font-bold text-text-primary mb-6">Machine Details</h2>
+          <form onSubmit={handleSubmitMachineData} className="bg-[#F9FAFB] border border-[#E5E7EB] rounded-[4px] p-8 mb-8 space-y-6">
+            <h2 className="text-2xl font-bold text-[#111111] mb-6">Machine Details</h2>
 
             {/* Water Hardness */}
             <div>
-              <label htmlFor="waterHardness" className="block text-sm font-bold text-text-primary mb-2">
-                Water Hardness (PPM/TDS) <span className="text-accent-orange">*</span>
+              <label htmlFor="waterHardness" className="block text-sm font-bold text-[#111111] mb-2">
+                Water Hardness (PPM/TDS) <span className="text-[#B91C1C]">*</span>
               </label>
               <input
                 type="number"
@@ -175,18 +175,18 @@ function SuccessContent() {
                 placeholder="e.g., 150"
                 min="1"
                 max="999"
-                className="w-full bg-dark-bg border border-dark-border text-text-primary placeholder-text-secondary rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent-orange"
+                className="w-full bg-white border border-[#E5E7EB] text-[#111111] placeholder-[#9CA3AF] rounded-[4px] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#111111]"
                 disabled={submittingData}
                 required
               />
-              {formErrors.waterHardness && <p className="text-red-500 text-sm mt-1">{formErrors.waterHardness}</p>}
-              <p className="text-xs text-text-secondary mt-1">Check your water report or use a TDS meter</p>
+              {formErrors.waterHardness && <p className="text-[#B91C1C] text-sm mt-1">{formErrors.waterHardness}</p>}
+              <p className="text-xs text-[#4B5563] mt-1">Check your water report or use a TDS meter.</p>
             </div>
 
             {/* Daily Shots */}
             <div>
-              <label htmlFor="dailyShots" className="block text-sm font-bold text-text-primary mb-2">
-                Daily Shots (Average) <span className="text-accent-orange">*</span>
+              <label htmlFor="dailyShots" className="block text-sm font-bold text-[#111111] mb-2">
+                Daily Shots (Average) <span className="text-[#B91C1C]">*</span>
               </label>
               <input
                 type="number"
@@ -199,18 +199,18 @@ function SuccessContent() {
                 placeholder="e.g., 4"
                 min="1"
                 max="99"
-                className="w-full bg-dark-bg border border-dark-border text-text-primary placeholder-text-secondary rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent-orange"
+                className="w-full bg-white border border-[#E5E7EB] text-[#111111] placeholder-[#9CA3AF] rounded-[4px] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#111111]"
                 disabled={submittingData}
                 required
               />
-              {formErrors.dailyShots && <p className="text-red-500 text-sm mt-1">{formErrors.dailyShots}</p>}
-              <p className="text-xs text-text-secondary mt-1">How many shots do you pull per day on average?</p>
+              {formErrors.dailyShots && <p className="text-[#B91C1C] text-sm mt-1">{formErrors.dailyShots}</p>}
+              <p className="text-xs text-[#4B5563] mt-1">How many shots do you pull per day on average?</p>
             </div>
 
             {/* Serial Number */}
             <div>
-              <label htmlFor="serialNumber" className="block text-sm font-bold text-text-primary mb-2">
-                Machine Serial Number <span className="text-accent-orange">*</span>
+              <label htmlFor="serialNumber" className="block text-sm font-bold text-[#111111] mb-2">
+                Machine Serial Number <span className="text-[#B91C1C]">*</span>
               </label>
               <input
                 type="text"
@@ -221,21 +221,21 @@ function SuccessContent() {
                   if (formErrors.serialNumber) setFormErrors(prev => ({ ...prev, serialNumber: '' }))
                 }}
                 placeholder="e.g., LM-12345"
-                className="w-full bg-dark-bg border border-dark-border text-text-primary placeholder-text-secondary rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent-orange"
+                className="w-full bg-white border border-[#E5E7EB] text-[#111111] placeholder-[#9CA3AF] rounded-[4px] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#111111]"
                 disabled={submittingData}
                 required
               />
-              {formErrors.serialNumber && <p className="text-red-500 text-sm mt-1">{formErrors.serialNumber}</p>}
-              <p className="text-xs text-text-secondary mt-1">Found on the machine's serial plate</p>
+              {formErrors.serialNumber && <p className="text-[#B91C1C] text-sm mt-1">{formErrors.serialNumber}</p>}
+              <p className="text-xs text-[#4B5563] mt-1">Found on the machine's serial plate.</p>
             </div>
 
-            {formErrors.submit && <p className="text-red-500 text-sm">{formErrors.submit}</p>}
+            {formErrors.submit && <p className="text-[#B91C1C] text-sm">{formErrors.submit}</p>}
 
             <div className="flex gap-4">
               <button
                 type="submit"
                 disabled={submittingData}
-                className="flex-1 bg-accent-orange text-black font-bold py-3 px-6 rounded-md uppercase tracking-wider hover:bg-accent-orange-hover transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex-1 bg-[#000000] text-white font-bold py-3 px-6 rounded-[4px] uppercase tracking-wider hover:bg-[#333333] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {submittingData ? 'Saving...' : 'Save Details'}
               </button>
@@ -243,7 +243,7 @@ function SuccessContent() {
                 type="button"
                 onClick={() => setShowDataForm(false)}
                 disabled={submittingData}
-                className="flex-1 bg-dark-bg text-text-primary border border-dark-border font-bold py-3 px-6 rounded-md uppercase tracking-wider hover:border-accent-orange transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex-1 bg-white text-[#111111] border border-[#E5E7EB] font-bold py-3 px-6 rounded-[4px] uppercase tracking-wider hover:border-[#111111] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Skip for Now
               </button>
@@ -252,42 +252,42 @@ function SuccessContent() {
         )}
 
         {dataSubmitSuccess && (
-          <div className="bg-dark-surface border border-accent-green rounded-lg p-8 mb-8 text-center">
+          <div className="bg-[#F9FAFB] border border-[#E5E7EB] rounded-[4px] p-8 mb-8 text-center">
             <div className="text-4xl mb-4">✨</div>
-            <h2 className="text-2xl font-bold text-accent-green mb-4">Profile Complete!</h2>
-            <p className="text-text-secondary mb-6">
-              Thanks for providing your machine details. Your custom schedule is now being generated based on your exact specifications.
+            <h2 className="text-2xl font-bold text-[#0F766E] mb-4">Profile Complete</h2>
+            <p className="text-[#4B5563] mb-6">
+              Thanks for providing your machine details. Your Certified LSI Report and recipe will reflect your exact specifications.
             </p>
           </div>
         )}
 
-        <div className="bg-dark-surface border border-dark-border rounded-lg p-8 mb-8 text-left">
-          <h2 className="text-2xl font-bold text-text-primary mb-4">What Happens Next?</h2>
-          <ul className="space-y-4 text-text-secondary">
+        <div className="bg-[#F9FAFB] border border-[#E5E7EB] rounded-[4px] p-8 mb-8 text-left">
+          <h2 className="text-2xl font-bold text-[#111111] mb-4">What Happens Next?</h2>
+          <ul className="space-y-4 text-[#4B5563]">
             <li className="flex items-start gap-3">
-              <span className="text-accent-orange text-xl">1.</span>
-              <span>Your custom maintenance schedule is being generated. <strong>Check your inbox within 24 hours</strong> for your personalized calendar.</span>
+              <span className="text-[#0F766E] text-xl font-semibold">1.</span>
+              <span>Your Certified LSI Report and recipe are being generated. <strong className="text-[#111111]">Check your inbox within 24 hours.</strong></span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="text-accent-orange text-xl">2.</span>
-              <span>You'll receive a .ics calendar file cross-referenced against La Marzocco factory specifications.</span>
+              <span className="text-[#0F766E] text-xl font-semibold">2.</span>
+              <span>You’ll receive dosing instructions (grams per gallon) and your timestamped documentation.</span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="text-accent-orange text-xl">3.</span>
-              <span>Simply import the .ics file to Google Calendar, Apple Calendar, or Outlook for automatic reminders.</span>
+              <span className="text-[#0F766E] text-xl font-semibold">3.</span>
+              <span>Need adjustments? Reply to the delivery email and we’ll tune the recipe for your water.</span>
             </li>
           </ul>
         </div>
 
-        <div className="bg-dark-surface border-l-4 border-accent-orange rounded-lg p-6 mb-8">
-          <p className="text-text-primary">
+        <div className="bg-white border border-[#E5E7EB] rounded-[4px] p-6 mb-8">
+          <p className="text-[#111111]">
             <strong>Need help?</strong> Reply to your confirmation email and we'll assist you right away.
           </p>
         </div>
 
         <Link
           href="/"
-          className="inline-block bg-dark-surface text-text-primary border border-dark-border font-bold py-4 px-8 rounded-md uppercase tracking-wider hover:border-accent-orange transition-colors"
+          className="inline-block bg-[#000000] text-white font-bold py-4 px-8 rounded-[4px] uppercase tracking-wider hover:bg-[#333333] transition-colors"
         >
           Return Home
         </Link>
@@ -299,12 +299,12 @@ function SuccessContent() {
 export default function SuccessPage() {
   return (
     <Suspense fallback={
-      <section className="container-custom min-h-screen flex flex-col items-center justify-center py-16">
+      <section className="container-custom min-h-screen flex flex-col items-center justify-center py-16 bg-white">
         <div className="max-w-2xl text-center">
           <div className="animate-pulse mb-8">
-            <div className="w-16 h-16 bg-accent-orange rounded-full mx-auto mb-4"></div>
+            <div className="w-16 h-16 bg-[#E5E7EB] rounded-full mx-auto mb-4"></div>
           </div>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-text-primary mb-6">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-[#111111] mb-6">
             Loading...
           </h1>
         </div>

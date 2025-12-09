@@ -22,13 +22,13 @@ export function Button({
   disabled = false,
 }: ButtonProps) {
   const baseClasses =
-    "font-bold rounded-md uppercase tracking-wider transition-all duration-200 inline-block text-center"
+    "font-bold rounded-[4px] uppercase tracking-wider transition-colors duration-150 inline-block text-center"
 
   const variantClasses = {
     primary:
-      "bg-accent-orange text-black hover:bg-accent-orange-hover hover:scale-105 active:scale-95",
+      "bg-[#000000] text-white hover:bg-[#333333]",
     secondary:
-      "bg-dark-surface text-text-primary border border-dark-border hover:border-accent-orange",
+      "bg-white text-[#111111] border border-[#E5E7EB] hover:border-[#111111]",
   }
 
   const sizeClasses = {

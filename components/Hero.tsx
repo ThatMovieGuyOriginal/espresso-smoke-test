@@ -22,23 +22,23 @@ function HeroContent() {
         {/* [IMAGE PLACEMENT 1: Hero shot of Linea Mini/Machine on counter] */}
         
         {/* Headline */}
-        <h1 className="text-5xl md:text-7xl font-bold text-black mb-6 leading-tight">
+        <h1 className="text-5xl md:text-7xl font-bold text-[#111111] mb-6 leading-tight">
           Is Your Water Voiding Your Warranty?
         </h1>
 
         {/* Sub-headline */}
-        <h2 className="text-xl md:text-2xl text-gray-700 mb-12 leading-relaxed">
+        <h2 className="text-xl md:text-2xl text-[#4B5563] mb-12 leading-relaxed">
           Certified Langelier Saturation Index (LSI) calculation and custom mineralization recipe calibrated for La Marzocco (Mini, Micra, GS3) & Slayer specifications.
         </h2>
 
         {/* The Offer */}
-        <div className="bg-gray-50 border border-gray-200 rounded-lg p-8 mb-8 text-left">
-          <p className="text-sm font-semibold text-gray-600 uppercase tracking-wider mb-4">The Offer</p>
+        <div className="bg-[#F9FAFB] border border-[#E5E7EB] rounded-[4px] p-8 mb-8 text-left">
+          <p className="text-sm font-semibold text-[#4B5563] uppercase tracking-wider mb-4">The Offer</p>
           
-          <div className="space-y-3 text-gray-700">
-            <p><strong className="text-black">For:</strong> La Marzocco & Slayer Owners.</p>
-            <p><strong className="text-black">Deliverable:</strong> 24-Hour Certified LSI Audit.</p>
-            <p><strong className="text-black">Goal:</strong> Prevent Boiler Corrosion & Scale.</p>
+          <div className="space-y-3 text-[#4B5563]">
+            <p><strong className="text-[#111111]">For:</strong> La Marzocco & Slayer Owners.</p>
+            <p><strong className="text-[#111111]">Deliverable:</strong> 24-Hour Certified LSI Audit.</p>
+            <p><strong className="text-[#111111]">Goal:</strong> Prevent Boiler Corrosion & Scale.</p>
           </div>
         </div>
 
@@ -49,11 +49,11 @@ function HeroContent() {
             href={`/order?machine=${machineType}`}
             variant="primary"
             size="lg"
-            className="bg-black text-white hover:bg-gray-800 text-lg px-8 py-4"
+            className="bg-[#000000] text-white hover:bg-[#333333] text-lg px-8 py-4 rounded-[4px]"
           >
             REQUEST WATER AUDIT - $97
           </Button>
-          <p className="text-sm text-gray-600 mt-3">
+          <p className="text-sm text-[#4B5563] mt-3">
             24-Hour Turnaround. Money-Back Guarantee.
           </p>
         </div>
