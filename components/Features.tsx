@@ -1,3 +1,7 @@
+'use client'
+
+import Image from "next/image"
+
 export default function Features() {
   const features = [
     {
@@ -24,14 +28,24 @@ export default function Features() {
 
   return (
     <section className="container-custom py-20 md:py-32 border-t border-[#E5E7EB] bg-[#F9FAFB]">
-      {/* [IMAGE PLACEMENT 3: The "Evidence" Shot - Blurred LSI Report with recipe card] */}
-      
       <h2 className="text-4xl md:text-5xl font-bold text-[#111111] mb-4 text-center">
         Laboratory-Grade Water Analysis.
       </h2>
       <p className="text-lg text-[#4B5563] text-center mb-12 max-w-2xl mx-auto">
         Quantitative LSI calculation with machine-specific mineralization protocol. No generic recommendations.
       </p>
+
+      <div className="mb-12">
+        <Image
+          src="/images/evidence/evidence-lsi-report-recipe-card.jpg"
+          alt="LSI report with custom mineralization recipe card"
+          width={1000}
+          height={600}
+          quality={85}
+          className="w-full h-auto rounded-[6px] border border-[#E5E7EB] shadow-sm"
+          loading="lazy"
+        />
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {features.map((feature, idx) => (
