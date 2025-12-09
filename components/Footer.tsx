@@ -22,14 +22,6 @@ export default function Footer() {
           </Link>
         </nav>
       </div>
-      <div className="container-custom pb-6 text-center">
-        <p className="text-xs text-[#6B7280] mb-2">
-          <strong className="text-[#D1D5DB]">Contact:</strong> support@espressoschedules.com
-        </p>
-        <p className="text-xs text-[#6B7280]">
-          Response time: {'<'} 12 Hours (Priority Audit Delivery)
-        </p>
-      </div>
     </footer>
   )
 }
