@@ -6,46 +6,50 @@
 CREATE TABLE IF NOT EXISTS orders (
   id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
   email TEXT NOT NULL,
-  
-  -- Machine and Product Information
-  product_type TEXT DEFAULT 'lm_water_97', -- Type of product purchased (lm_water_97, etc.)
-  machine_type TEXT, -- linea_mini, linea_micra, gs3, slayer
-  
-  -- Water Parameters (stored with dummy defaults, updated post-purchase)
   water_hardness_ppm INTEGER DEFAULT 150,
   daily_shots INTEGER DEFAULT 4,
   serial_number TEXT DEFAULT 'TBD',
-  
-  -- Water Source (collected on success page)
-  water_source TEXT, -- bottled, mixed, tap, unknown
-  
-  -- Payment Information
   stripe_session_id TEXT UNIQUE,
   stripe_payment_intent TEXT,
-  amount_paid INTEGER DEFAULT 9700, -- in cents ($97.00)
-  
-  -- Status and Timestamps
-  status TEXT DEFAULT 'pending_payment' CHECK (status IN ('pending', 'pending_payment', 'paid', 'fulfilled', 'refunded')),
   created_at TIMESTAMP DEFAULT now(),
-  updated_at TIMESTAMP DEFAULT now(),
-  fulfilled_at TIMESTAMP, -- When audit report was delivered to customer
-  
-  -- Fulfillment
-  ics_file_url TEXT, -- URL/path to the audit report or recipe card
-  lsi_report_url TEXT, -- URL/path to LSI calculation report
-  custom_recipe TEXT, -- The water recipe prescription
-  
-  -- Customer Information
+  status TEXT DEFAULT 'pending_payment' CHECK (status IN ('pending', 'pending_payment', 'paid', 'fulfilled', 'refunded')),
+  amount_paid INTEGER DEFAULT 9700,
   customer_ip TEXT,
-  
-  -- Notes and Support
-  notes TEXT, -- Internal notes on order
-  refund_reason TEXT, -- Reason for refund if applicable
-  
-  -- Constraints
+  fulfilled_at TIMESTAMP,
+  ics_file_url TEXT,
+  notes TEXT,
+  refund_reason TEXT,
   CONSTRAINT valid_water_hardness CHECK (water_hardness_ppm > 0 AND water_hardness_ppm < 1000),
   CONSTRAINT valid_daily_shots CHECK (daily_shots > 0 AND daily_shots < 100)
 );
+
+-- Add new columns if they don't exist (idempotent)
+DO $$ 
+BEGIN
+  IF NOT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name = 'orders' AND column_name = 'product_type') THEN
+    ALTER TABLE orders ADD COLUMN product_type TEXT DEFAULT 'lm_water_97';
+  END IF;
+  
+  IF NOT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name = 'orders' AND column_name = 'machine_type') THEN
+    ALTER TABLE orders ADD COLUMN machine_type TEXT;
+  END IF;
+  
+  IF NOT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name = 'orders' AND column_name = 'water_source') THEN
+    ALTER TABLE orders ADD COLUMN water_source TEXT;
+  END IF;
+  
+  IF NOT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name = 'orders' AND column_name = 'updated_at') THEN
+    ALTER TABLE orders ADD COLUMN updated_at TIMESTAMP DEFAULT now();
+  END IF;
+  
+  IF NOT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name = 'orders' AND column_name = 'lsi_report_url') THEN
+    ALTER TABLE orders ADD COLUMN lsi_report_url TEXT;
+  END IF;
+  
+  IF NOT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name = 'orders' AND column_name = 'custom_recipe') THEN
+    ALTER TABLE orders ADD COLUMN custom_recipe TEXT;
+  END IF;
+END $$;
 
 -- Create indexes for faster lookups (idempotent)
 CREATE INDEX IF NOT EXISTS orders_email_idx ON orders(email);
@@ -59,13 +63,11 @@ CREATE INDEX IF NOT EXISTS orders_water_source_idx ON orders(water_source);
 -- Ensure status constraint includes all required values (idempotent)
 DO $$ 
 BEGIN
-  -- Drop old constraint if it exists and is missing 'pending_payment'
   IF EXISTS (
     SELECT 1 FROM pg_constraint 
     WHERE conname = 'orders_status_check' 
     AND conrelid = 'orders'::regclass
   ) THEN
-    -- Check if constraint definition includes all required statuses
     DECLARE
       constraint_def TEXT;
     BEGIN
@@ -74,7 +76,6 @@ BEGIN
       WHERE conname = 'orders_status_check' 
       AND conrelid = 'orders'::regclass;
       
-      -- If constraint is missing 'pending_payment', drop and recreate
       IF constraint_def NOT LIKE '%pending_payment%' THEN
         ALTER TABLE orders DROP CONSTRAINT orders_status_check;
         ALTER TABLE orders
