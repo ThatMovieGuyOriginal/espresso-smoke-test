@@ -14,27 +14,27 @@ function HeroContent() {
     const configs: Record<string, any> = {
       linea_mini: {
         name: 'Linea Mini',
-        warranty: 'voiding your Linea Mini warranty',
-        problem: 'Heating element corrosion',
-        fear: 'A boiler replacement costs $2,000+',
+        warranty: 'compromising your warranty coverage',
+        problem: 'Accelerated heating element degradation',
+        fear: 'Boiler replacement: $2,000+ in parts and labor.',
       },
       linea_micra: {
         name: 'Linea Micra',
-        warranty: 'voiding your Linea Micra warranty',
-        problem: 'Boiler scaling and corrosion',
-        fear: 'You stretched your budget to buy this. Don\'t ruin it.',
+        warranty: 'compromising your warranty coverage',
+        problem: 'Scale accumulation in dual-boiler system',
+        fear: 'Dual-boiler repair costs exceed $2,500.',
       },
       gs3: {
         name: 'GS3',
-        warranty: 'voiding your GS3 warranty',
-        problem: 'Saturated group head calcification',
-        fear: 'A seized needle valve is a $3,000+ repair nightmare.',
+        warranty: 'compromising your warranty coverage',
+        problem: 'Saturated group calcification',
+        fear: 'Group head rebuild: $3,000+ at authorized service centers.',
       },
       slayer: {
         name: 'Slayer',
-        warranty: 'voiding your Slayer warranty',
-        problem: 'Needle valve precision loss',
-        fear: 'The precision that makes Slayer special is destroyed by scale.',
+        warranty: 'compromising your warranty coverage',
+        problem: 'Flow control valve degradation',
+        fear: 'Precision components are irreparably damaged by improper water chemistry.',
       },
     }
     return configs[machineType] || configs.linea_mini
@@ -59,8 +59,8 @@ function HeroContent() {
 
         {/* Sub-headline - The Solution */}
         <h2 className="text-2xl md:text-3xl font-semibold text-gray-700 mb-8 leading-relaxed">
-          Stop Guessing with Test Strips. We Calculate Your Exact Langelier Saturation Index (LSI) 
-          and Prescribe a Custom Water Recipe Safe for {config.name}.
+          Certified Langelier Saturation Index (LSI) calculation with custom mineralization recipe 
+          calibrated for {config.name} specifications.
         </h2>
 
         {/* The Pain Points - Why They Need This */}
@@ -128,13 +128,13 @@ function HeroContent() {
             REQUEST WATER AUDIT - $97
           </Button>
           <p className="text-sm text-gray-600 mt-3">
-            24-Hour Turnaround. Certified by Industrial Mechanic.
+            24-hour analysis turnaround. Results delivered via email.
           </p>
         </div>
 
         {/* Reassurance */}
         <p className="text-sm text-gray-700">
-          🔒 <strong>Money-Back Guarantee:</strong> If the recipe doesn't solve your water concerns, get your $97 back. No questions asked.
+          🔒 <strong>30-Day Money-Back Guarantee:</strong> Full refund if our analysis doesn't provide actionable water chemistry data.
         </p>
       </div>
     </section>

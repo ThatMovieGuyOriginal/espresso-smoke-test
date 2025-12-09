@@ -19,13 +19,14 @@ function CloseSectionContent() {
   return (
     <section className="container-custom py-20 md:py-32 border-t border-dark-border text-center bg-white">
       <h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
-        Your Water Is Either Protecting or Destroying Your Machine.
+        Water Chemistry Is Measurable. Not Debatable.
       </h2>
       <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto leading-relaxed">
-        There is no middle ground. Scale or corrosion. You need to know which one you're in—and exactly how to fix it.
+        Your water is either chemically stable (LSI ≈ 0) or actively degrading your equipment. 
+        Quantify your risk. Implement the solution.
       </p>
       <p className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
-        For $97, we'll tell you exactly what your machine needs to stay safe.
+        Complete water audit with custom recipe: $97.
       </p>
       <Button
         onClick={handleCTAClick}

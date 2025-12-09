@@ -5,60 +5,63 @@ export default function Agitation() {
     <section className="container-custom py-20 md:py-32 border-t border-dark-border bg-gray-50">
       <div className="max-w-3xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
-          Most Espresso Owners Are Running Wrong Water Chemistry.
+          Water Chemistry Determines Machine Longevity.
         </h2>
         <p className="text-lg text-gray-700 mb-12">
-          They're either scaling up the boiler or corroding it from the inside out. And they have no idea which one.
+          Untested water accelerates either scale accumulation or component corrosion. Both pathways lead to premature failure.
         </p>
 
         <div className="space-y-6 mb-12">
           <div className="bg-white border-2 border-red-300 rounded-lg p-6">
             <h3 className="font-bold text-red-600 mb-2 text-lg">
-              The Scale Disaster (Hard Water)
+              Scale Formation (LSI {'>'} 0)
             </h3>
             <p className="text-gray-700">
-              Tap water over 200 TDS deposits mineral buildup on heating elements, group gaskets, and diffusers. 
-              It hardens into rock. Descaling chemicals can delay it but can't stop the eventual $2,000+ boiler replacement.
+              Water with total dissolved solids above 200 ppm deposits calcium carbonate on heating elements, 
+              group screens, and thermosyphon tubes. Descaling protocols provide temporary relief but cannot 
+              prevent cumulative mineral deposition. Eventual boiler replacement is inevitable.
             </p>
           </div>
 
           <div className="bg-white border-2 border-orange-300 rounded-lg p-6">
             <h3 className="font-bold text-orange-600 mb-2 text-lg">
-              The Corrosion Disaster (Pure Water)
+              Galvanic Corrosion (LSI {'<'} 0)
             </h3>
             <p className="text-gray-700">
-              RO water and distilled water (0 TDS) are chemically unstable. They leach copper and stainless steel from your boiler, 
-              group head, and gaskets. The damage is silent and irreversible.
+              Demineralized water (reverse osmosis, distilled) with insufficient buffering capacity leaches 
+              copper and steel from boiler internals. This electrochemical process is irreversible and 
+              asymptomatic until catastrophic failure occurs.
             </p>
           </div>
 
           <div className="bg-white border-2 border-green-300 rounded-lg p-6">
             <h3 className="font-bold text-green-600 mb-2 text-lg">
-              The Solution (Balanced Water - LSI 0)
+              Chemical Equilibrium (LSI ≈ 0)
             </h3>
             <p className="text-gray-700">
-              A Langelier Saturation Index of 0 (or near 0) means your water is chemically stable. It won't scale. It won't corrode. 
-              Your machine stays safe and your warranty stays intact.
+              A Langelier Saturation Index between -0.5 and +0.5 indicates chemically stable water. 
+              Mineral precipitation is minimized. Corrosion rate remains within acceptable tolerance. 
+              Component lifespan is maximized per manufacturer specifications.
             </p>
           </div>
         </div>
 
         <div className="bg-black text-white rounded-lg p-8 mb-12">
           <p className="text-2xl font-bold mb-3">
-            Here's The Problem:
+            The Challenge:
           </p>
           <p className="text-lg">
-            Most people don't know their water chemistry. They guessing. They buy random "espresso water" products that might not match 
-            <em> their </em> specific water. Or they use tap water and hope.
+            Without laboratory analysis, water chemistry remains unknown. Commercial "espresso water" products 
+            provide generalized formulations that may not align with your source water parameters or machine requirements.
           </p>
           <p className="text-lg mt-4">
-            We calculate YOUR exact water parameters and prescribe the exact recipe to hit LSI 0 for YOUR {' '}
-            <span className="font-bold">specific machine</span>.
+            Our audit calculates your precise LSI value and prescribes a custom mineral recipe calibrated for your specific 
+            machine model and source water composition.
           </p>
         </div>
 
         <p className="text-center text-gray-700 text-lg">
-          That's the $97 audit. That's the certainty you need.
+          Precision water chemistry. $97 for complete analysis and implementation protocol.
         </p>
       </div>
     </section>
