@@ -38,23 +38,20 @@ export default function UnsubscribePage() {
       <div className="max-w-md mx-auto bg-[#F9FAFB] border border-[#E5E7EB] rounded-[4px] p-8">
         <h1 className="text-2xl font-extrabold text-[#111111] mb-4">Unsubscribe</h1>
         <p className="text-[#4B5563] mb-4">Enter your email to unsubscribe from the waitlist.</p>
-          <input
         <form onSubmit={handleUnsubscribe} className="flex flex-col gap-4">
           <input
             type="email"
             value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="bg-white border border-[#E5E7EB] text-[#111111] rounded-[4px] px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#111111]"
             placeholder="you@example.com"
-            className="bg-dark-bg border border-dark-border text-text-primary rounded-md px-4 py-2"
             required
-          <button className="btn-waitlist" disabled={loading} type="submit">
           />
           <button className="btn-waitlist" disabled={loading} type="submit">
             {loading ? 'Unsubscribing...' : 'Unsubscribe'}
           </button>
+        </form>
         {message && <p className="text-[#4B5563] mt-4">{message}</p>}
-
-        {message && <p className="text-text-secondary mt-4">{message}</p>}
       </div>
     </section>
   )
