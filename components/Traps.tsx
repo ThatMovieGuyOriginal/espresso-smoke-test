@@ -1,10 +1,22 @@
 'use client'
 
+import Image from "next/image"
+
 export default function Traps() {
   return (
     <section className="container-custom py-20 md:py-32 border-t border-[#E5E7EB] bg-white">
       <div className="max-w-3xl mx-auto">
-        {/* [IMAGE PLACEMENT 2: The "Villain" Shot - calcified/corroded heating element] */}
+        <div className="mb-10">
+          <Image
+            src="/images/evidence/villain-calcified-heating-element.jpg"
+            alt="Calcified heating element showing damage from untreated hard water"
+            width={800}
+            height={600}
+            quality={85}
+            className="w-full h-auto rounded-[6px] border border-[#E5E7EB] shadow-sm"
+            loading="lazy"
+          />
+        </div>
         
         <h2 className="text-4xl md:text-5xl font-bold text-[#111111] mb-12 text-center">
           The Three Traps Every Home Barista Falls Into:
