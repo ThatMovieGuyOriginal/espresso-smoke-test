@@ -1,9 +1,10 @@
 "use client"
 
-import { Button } from "@/components/Button";
-import { track } from "@vercel/analytics";
-import { useSearchParams } from "next/navigation";
-import { Suspense } from "react";
+import { Button } from "@/components/Button"
+import { track } from "@vercel/analytics"
+import Image from "next/image"
+import { useSearchParams } from "next/navigation"
+import { Suspense } from "react"
 
 function HeroContent() {
   const searchParams = useSearchParams()
@@ -19,7 +20,17 @@ function HeroContent() {
   return (
     <section className="container-custom py-16 md:py-32 bg-white">
       <div className="max-w-3xl mx-auto text-center">
-        {/* [IMAGE PLACEMENT 1: Hero shot of Linea Mini/Machine on counter] */}
+        <div className="mb-10">
+          <Image
+            src="/images/hero/hero-linea-mini-counter.jpg"
+            alt="La Marzocco Linea Mini espresso machine on a luxury counter"
+            width={1200}
+            height={600}
+            priority
+            quality={85}
+            className="w-full h-auto rounded-[6px] border border-[#E5E7EB] shadow-sm"
+          />
+        </div>
         
         {/* Headline */}
         <h1 className="text-5xl md:text-7xl font-bold text-[#111111] mb-6 leading-tight">
