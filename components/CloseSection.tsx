@@ -3,8 +3,9 @@
 import { Button } from "@/components/Button"
 import { track } from "@vercel/analytics"
 import { useSearchParams } from "next/navigation"
+import { Suspense } from "react"
 
-export default function CloseSection() {
+function CloseSectionContent() {
   const searchParams = useSearchParams()
   const machineType = searchParams.get('machine') || 'linea_mini'
 
@@ -39,5 +40,13 @@ export default function CloseSection() {
         24-Hour Turnaround. Money-Back Guarantee.
       </p>
     </section>
+  )
+}
+
+export default function CloseSection() {
+  return (
+    <Suspense fallback={<div className="container-custom py-20 md:py-32 border-t border-dark-border text-center bg-white"></div>}>
+      <CloseSectionContent />
+    </Suspense>
   )
 }

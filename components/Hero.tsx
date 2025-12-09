@@ -3,8 +3,9 @@
 import { Button } from "@/components/Button";
 import { track } from "@vercel/analytics";
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
-export default function Hero() {
+function HeroContent() {
   const searchParams = useSearchParams()
   const machineType = searchParams.get('machine') || 'linea_mini'
   
@@ -137,5 +138,13 @@ export default function Hero() {
         </p>
       </div>
     </section>
+  )
+}
+
+export default function Hero() {
+  return (
+    <Suspense fallback={<div className="container-custom py-16 md:py-32 bg-white"></div>}>
+      <HeroContent />
+    </Suspense>
   )
 }

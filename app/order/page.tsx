@@ -118,7 +118,7 @@ function OrderContent() {
             disabled={loading}
             className="w-full bg-accent-orange text-black font-bold py-4 px-8 rounded-md uppercase tracking-wider transition-all duration-200 hover:bg-accent-orange-hover hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed text-lg"
           >
-            {loading ? 'REDIRECTING...' : 'PROCEED TO PAYMENT - $19'}
+            {loading ? 'REDIRECTING...' : 'PROCEED TO PAYMENT - $97'}
           </button>
 
           <p className="text-xs text-text-secondary text-center mt-4">
